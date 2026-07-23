@@ -79,5 +79,14 @@
     "question": "How does the correct Rayleigh scattering formula I = I₀ × (8π⁴/3) × (n²-1)²/(n²+2)² × (a⁶/λ⁴) × (1/r²) emerge from Buckingham pi analysis?",
     "path": "disproven/art_0ec4322deb_rayleigh-scattering-buckingham-pi-analysis.md",
     "timestamp": "2026-07-23T14:04:15Z"
+  },
+  {
+    "id": "art_4a5fbf5296",
+    "verdict": "DISPROVEN",
+    "title": "Dimensional Inconsistency in Time-Dependent Lagrangian",
+    "confidence": 1.0,
+    "question": "What are the implications for Noether's theorem when dealing with systems where time translation symmetry is broken in a controlled, dimensionally consistent manner?",
+    "path": "disproven/art_4a5fbf5296_dimensional-inconsistency-in-time-dependent-lagrangian.md",
+    "timestamp": "2026-07-23T19:10:58Z"
   }
 ]

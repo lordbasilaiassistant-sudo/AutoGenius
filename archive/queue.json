@@ -280,8 +280,8 @@
     "significance": 5,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_6eed568916",
     "added": "2026-07-23T13:53:42Z"
   },
@@ -306,5 +306,27 @@
     "status": "open",
     "parent": "q_8ce7a2566b",
     "added": "2026-07-23T14:04:15Z"
+  },
+  {
+    "id": "q_a599fab502",
+    "question": "What is the correct form of a time-dependent perturbation to a Lagrangian that maintains dimensional consistency?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_4d30c65f61",
+    "added": "2026-07-23T19:10:58Z"
+  },
+  {
+    "id": "q_3afbabea9c",
+    "question": "How does Noether's theorem need to be modified when dealing with time-dependent perturbations that maintain dimensional consistency?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_4d30c65f61",
+    "added": "2026-07-23T19:10:58Z"
   }
 ]
