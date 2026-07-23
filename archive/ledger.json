@@ -4,5 +4,11 @@
     "claim": "The period T of a simple pendulum in the small-angle limit is given by T = 2π√(L/g), where L is the length of the pendulum and g is the acceleration due to gravity.",
     "artifact": "art_7a1ec098fe_simple-pendulum-period-in-small-angle-limit.md",
     "added": "2026-07-23T06:13:14Z"
+  },
+  {
+    "id": "art_3013e71b54",
+    "claim": "The Lyapunov exponent λ of the logistic map f(x) = 4x(1-x) is positive, indicating deterministic chaos.",
+    "artifact": "art_3013e71b54_lyapunov-exponent-of-logistic-map-at-r-4.md",
+    "added": "2026-07-23T06:29:30Z"
   }
 ]

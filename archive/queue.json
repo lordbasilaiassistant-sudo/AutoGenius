@@ -82,8 +82,8 @@
     "significance": 4,
     "tractability": 5,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
   },
@@ -141,5 +141,27 @@
     "status": "open",
     "parent": "q_56da713672",
     "added": "2026-07-23T06:19:59Z"
+  },
+  {
+    "id": "q_195c4016ef",
+    "question": "What is the exact analytical expression for the Lyapunov exponent at r=4?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_041d186ddc",
+    "added": "2026-07-23T06:29:30Z"
+  },
+  {
+    "id": "q_51ee266fd2",
+    "question": "How does the choice of initial condition affect the convergence rate of the Lyapunov exponent estimate?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_041d186ddc",
+    "added": "2026-07-23T06:29:30Z"
   }
 ]

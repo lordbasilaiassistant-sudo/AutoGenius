@@ -16,5 +16,14 @@
     "question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?",
     "path": "disproven/art_79862e44db_feigenbaum-constant-convergence.md",
     "timestamp": "2026-07-23T06:19:59Z"
+  },
+  {
+    "id": "art_3013e71b54",
+    "verdict": "PROVEN",
+    "title": "Lyapunov Exponent of Logistic Map at r=4",
+    "confidence": 0.95,
+    "question": "Numerically estimate the Lyapunov exponent of the logistic map at r=4 and show it is positive (deterministic chaos).",
+    "path": "established/art_3013e71b54_lyapunov-exponent-of-logistic-map-at-r-4.md",
+    "timestamp": "2026-07-23T06:29:30Z"
   }
 ]
