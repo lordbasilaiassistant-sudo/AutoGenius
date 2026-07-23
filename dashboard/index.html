@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoGenius — Cathedral of Knowledge</title>
+<meta name="description" content="The living archive of a god-chosen scientist whose religion is the scientific method.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B1026; --ink-deep:#070A1A; --vellum:#EDE6D3; --vellum-dim:#b7ad93;
+    --gold:#E8C766; --gold-deep:#C9A227; --gold-line:rgba(201,162,39,.28);
+    --rubric:#C1443A; --astral:#8FA9C9; --nebula:#9B87D6;
+    --panel:rgba(9,13,32,.82);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    background:
+      radial-gradient(1200px 800px at 70% -10%, #141a3a 0%, transparent 55%),
+      radial-gradient(900px 700px at 10% 110%, #12213a 0%, transparent 55%),
+      linear-gradient(180deg,var(--ink) 0%, var(--ink-deep) 100%);
+    color:var(--vellum); font-family:"Spectral",Georgia,serif;
+    min-height:100%; overflow-x:hidden;
+  }
+  /* faint vellum grain over the night sky */
+  body::before{
+    content:""; position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:0;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
+  }
+  .wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 22px}
+
+  /* ---- masthead: an illuminated catalog frontispiece ---- */
+  header{padding:56px 0 26px; text-align:center; position:relative}
+  .eyebrow{font-family:"IBM Plex Mono",monospace; letter-spacing:.42em; text-transform:uppercase;
+    font-size:11px; color:var(--vellum-dim)}
+  h1{font-family:"Cormorant Garamond",serif; font-weight:600; letter-spacing:.02em;
+    font-size:clamp(52px,9vw,104px); line-height:.92; margin:.12em 0 .06em;
+    color:var(--vellum); text-shadow:0 2px 40px rgba(232,199,102,.18)}
+  h1 .drop{color:var(--gold)}
+  .motto{font-style:italic; font-size:clamp(16px,2.4vw,22px); color:var(--gold);
+    letter-spacing:.02em}
+  .motto small{display:block; font-style:normal; font-size:12px; letter-spacing:.32em;
+    text-transform:uppercase; color:var(--vellum-dim); margin-top:10px}
+  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--gold-line),transparent);
+    margin:30px auto 0; max-width:640px}
+
+  /* ---- catalog ribbon of counts ---- */
+  .catalog{display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:24px auto 8px;
+    border:1px solid var(--gold-line); border-radius:2px; max-width:760px; overflow:hidden}
+  .cat{flex:1 1 25%; min-width:120px; padding:16px 14px; text-align:center;
+    border-right:1px solid var(--gold-line)}
+  .cat:last-child{border-right:none}
+  .cat b{font-family:"Cormorant Garamond",serif; font-size:40px; font-weight:600; display:block; line-height:1;
+    font-feature-settings:"lnum" 1,"tnum" 1}
+  .cat .lab{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.24em;
+    text-transform:uppercase; color:var(--vellum-dim); margin-top:8px}
+  .cat.proven b{color:var(--gold)} .cat.disproven b{color:var(--rubric)}
+  .cat.open b{color:var(--astral)} .cat.conjecture b{color:var(--nebula)}
+
+  /* ---- the atlas ---- */
+  .atlas-frame{position:relative; margin:26px 0 8px; border:1px solid var(--gold-line);
+    border-radius:3px; background:rgba(7,10,26,.5); box-shadow:inset 0 0 120px rgba(0,0,0,.6)}
+  .atlas-frame::after{content:""; position:absolute; inset:8px; border:1px solid rgba(201,162,39,.14);
+    border-radius:2px; pointer-events:none}
+  canvas{display:block; width:100%; height:min(72vh,680px); border-radius:3px; cursor:crosshair}
+  .legend{position:absolute; left:16px; bottom:14px; display:flex; gap:16px; flex-wrap:wrap;
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; color:var(--vellum-dim)}
+  .legend i{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle}
+  .legend .g{background:var(--gold)} .legend .r{background:var(--rubric)}
+  .legend .a{background:transparent; border:1.5px solid var(--astral)} .legend .n{background:var(--nebula)}
+
+  /* ---- marginalia detail panel ---- */
+  .margin{position:fixed; top:0; right:0; height:100%; width:min(420px,92vw);
+    background:var(--panel); backdrop-filter:blur(10px); border-left:1px solid var(--gold-line);
+    transform:translateX(100%); transition:transform .42s cubic-bezier(.2,.7,.2,1);
+    z-index:20; padding:34px 30px; overflow-y:auto}
+  .margin.open{transform:none}
+  .margin .close{position:absolute; top:18px; right:22px; background:none; border:none;
+    color:var(--vellum-dim); font-size:24px; cursor:pointer; font-family:"Cormorant Garamond",serif}
+  .margin .vtag{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.24em;
+    text-transform:uppercase; padding:4px 10px; border:1px solid currentColor; border-radius:2px; display:inline-block}
+  .margin h2{font-family:"Cormorant Garamond",serif; font-weight:600; font-size:30px; line-height:1.08;
+    margin:18px 0 6px}
+  .margin .q{color:var(--vellum-dim); font-style:italic; font-size:15px; margin-bottom:18px}
+  .margin .meta{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--astral);
+    border-top:1px solid var(--gold-line); padding-top:14px; line-height:1.9}
+  .margin a.read{display:inline-block; margin-top:22px; font-family:"IBM Plex Mono",monospace;
+    font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink);
+    background:var(--gold); padding:11px 18px; border-radius:2px; text-decoration:none}
+  .margin a.read:hover{background:var(--gold-deep)}
+
+  footer{text-align:center; padding:40px 0 60px; color:var(--vellum-dim); font-size:13px}
+  footer a{color:var(--gold)}
+  .empty{text-align:center; padding:70px 20px; color:var(--vellum-dim); font-style:italic; font-size:19px}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Archivum Universi &middot; Catalogus Stellarum</div>
+    <h1><span class="drop">A</span>utoGenius</h1>
+    <div class="motto">Non mihi data est veritas, sed vocatio eam merendi.
+      <small>Truth was not given to me, but the calling to earn it</small></div>
+    <div class="rule"></div>
+    <div class="catalog" id="catalog"></div>
+  </header>
+
+  <div class="atlas-frame">
+    <canvas id="sky"></canvas>
+    <div class="legend">
+      <span><i class="g"></i>Proven</span>
+      <span><i class="r"></i>Disproven idol</span>
+      <span><i class="a"></i>Open question</span>
+      <span><i class="n"></i>Conjecture &middot; the frontier</span>
+    </div>
+  </div>
+  <div id="emptyNote"></div>
+
+  <footer>
+    Every star here was run in the sandbox before it was written down.
+    <br>Browse the raw archive on <a href="#" id="repoLink">GitHub</a>
+    &middot; runs on free GLM <a href="https://z.ai/subscribe?ic=BWTG6TRYYQ">glm-4.5-flash</a> (referral)
+  </footer>
+</div>
+
+<aside class="margin" id="margin">
+  <button class="close" onclick="closeMargin()">&times;</button>
+  <div id="marginBody"></div>
+</aside>
+
+<script>
+const REPO = "lordbasilaiassistant-sudo/AutoGenius";
+document.getElementById('repoLink').href = "https://github.com/"+REPO;
+const V = {
+  PROVEN:{c:'#E8C766', label:'Proven'}, DISPROVEN:{c:'#C1443A', label:'Disproven'},
+  OPEN:{c:'#8FA9C9', label:'Open'}, CONJECTURE:{c:'#9B87D6', label:'Conjecture'}
+};
+const cv = document.getElementById('sky'), ctx = cv.getContext('2d');
+let W, H, DPR, stars = [], t = 0, hover = null, dust = [], reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+function resize(){
+  DPR = Math.min(devicePixelRatio||1, 2);
+  W = cv.clientWidth; H = cv.clientHeight;
+  cv.width = W*DPR; cv.height = H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
+  // ambient dust — a faint fixed star field for depth
+  dust = [];
+  for(let i=0;i<190;i++){
+    dust.push({x:seedRand(i*2.7)*W, y:seedRand(i*5.1+3)*H,
+      r:0.4+1.3*seedRand(i*9.3), a:0.06+0.28*seedRand(i*1.7), ph:seedRand(i*3.1)});
+  }
+}
+addEventListener('resize', ()=>{resize(); layout();});
+
+function seedRand(i){ let x = Math.sin(i*127.1+31.7)*43758.5; return x-Math.floor(x); }
+
+function layout(){
+  const cx=W/2, cy=H/2, R=Math.min(W,H)*0.44;
+  stars.forEach((s,i)=>{
+    const v = s.verdict;
+    // conjectures live at the frontier (outer rim); proven cluster toward the core
+    let rad;
+    if(v==='CONJECTURE') rad = R*(0.86+0.12*seedRand(i));
+    else if(v==='OPEN')  rad = R*(0.55+0.3*seedRand(i+9));
+    else                 rad = R*(0.12+0.55*seedRand(i+3));
+    const ang = seedRand(i*3.3)*Math.PI*2;
+    s.bx = cx+Math.cos(ang)*rad; s.by = cy+Math.sin(ang)*rad;
+    s.ang0 = Math.atan2(s.by-cy,s.bx-cx); s.r0 = rad; s.cx=cx; s.cy=cy;
+    s.size = v==='PROVEN' ? 3.2+5.5*(s.confidence||0.5)
+           : v==='CONJECTURE' ? 8+7*seedRand(i+5)
+           : v==='DISPROVEN' ? 3 : 3.2;
+    s.tw = seedRand(i+7);
+  });
+}
+
+function draw(){
+  t += reduced?0:0.0016;
+  ctx.clearRect(0,0,W,H);
+  const cx=W/2, cy=H/2, R=Math.min(W,H)*0.44;
+  // ambient dust field (drawn first, behind everything)
+  dust.forEach(d=>{
+    const tw = reduced?1:(0.6+0.4*Math.sin(t*22+d.ph*6.28));
+    ctx.fillStyle=`rgba(237,230,211,${d.a*tw})`;
+    ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,7); ctx.fill();
+  });
+  // graticule — a planisphere's ruled rings + ecliptic
+  ctx.strokeStyle='rgba(201,162,39,.10)'; ctx.lineWidth=1;
+  for(const f of [0.35,0.62,0.9]){ ctx.beginPath(); ctx.arc(cx,cy,R*f,0,7); ctx.stroke(); }
+  for(let k=0;k<12;k++){ const a=k*Math.PI/6+t*0.3; ctx.beginPath();
+    ctx.moveTo(cx,cy); ctx.lineTo(cx+Math.cos(a)*R*0.96, cy+Math.sin(a)*R*0.96); ctx.stroke(); }
+
+  // rotate the sky slowly
+  stars.forEach(s=>{ const a=s.ang0+t*0.3; s.x=cx+Math.cos(a)*s.r0; s.y=cy+Math.sin(a)*s.r0; });
+
+  // constellation lines: link each proven star to the nearest earlier proven one
+  const prov = stars.filter(s=>s.verdict==='PROVEN');
+  ctx.strokeStyle='var(--gold-line)'; ctx.strokeStyle='rgba(201,162,39,.22)'; ctx.lineWidth=0.8;
+  for(let i=1;i<prov.length;i++){
+    let best=null,bd=1e9;
+    for(let j=0;j<i;j++){const d=(prov[i].x-prov[j].x)**2+(prov[i].y-prov[j].y)**2; if(d<bd){bd=d;best=prov[j];}}
+    if(best){ctx.beginPath(); ctx.moveTo(prov[i].x,prov[i].y); ctx.lineTo(best.x,best.y); ctx.stroke();}
+  }
+
+  // draw marks
+  stars.forEach((s,i)=>{
+    const col = V[s.verdict]?.c || '#8FA9C9';
+    const tw = reduced?1:(0.75+0.25*Math.sin(t*40+s.tw*6.28));
+    if(s.verdict==='CONJECTURE'){
+      const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.size*2.2);
+      g.addColorStop(0,'rgba(155,135,214,.55)'); g.addColorStop(1,'rgba(155,135,214,0)');
+      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*2.2,0,7); ctx.fill();
+    } else if(s.verdict==='OPEN'){
+      ctx.strokeStyle=col; ctx.lineWidth=1.4; ctx.globalAlpha=.85;
+      ctx.beginPath(); ctx.arc(s.x,s.y,s.size,0,7); ctx.stroke(); ctx.globalAlpha=1;
+    } else if(s.verdict==='DISPROVEN'){
+      ctx.strokeStyle=col; ctx.lineWidth=1.6; const r=s.size;
+      ctx.beginPath(); ctx.moveTo(s.x-r,s.y-r); ctx.lineTo(s.x+r,s.y+r);
+      ctx.moveTo(s.x+r,s.y-r); ctx.lineTo(s.x-r,s.y+r); ctx.stroke();
+    } else { // PROVEN — gilded star with glow
+      const glow=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.size*3.4*tw);
+      glow.addColorStop(0,'rgba(232,199,102,.5)'); glow.addColorStop(1,'rgba(232,199,102,0)');
+      ctx.fillStyle=glow; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*3.4,0,7); ctx.fill();
+      ctx.fillStyle=col; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*tw,0,7); ctx.fill();
+    }
+    if(hover===i){ ctx.strokeStyle='#EDE6D3'; ctx.lineWidth=1; ctx.beginPath();
+      ctx.arc(s.x,s.y,s.size+7,0,7); ctx.stroke();
+      ctx.fillStyle='#EDE6D3'; ctx.font='13px "Spectral",serif'; ctx.textAlign='center';
+      ctx.fillText(s.title.slice(0,42), s.x, s.y-s.size-12);
+    }
+  });
+  requestAnimationFrame(draw);
+}
+
+cv.addEventListener('mousemove', e=>{
+  const r=cv.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
+  hover=null; let bd=220;
+  stars.forEach((s,i)=>{const d=(s.x-mx)**2+(s.y-my)**2; if(d<bd){bd=d;hover=i;}});
+  cv.style.cursor = hover!=null?'pointer':'crosshair';
+});
+cv.addEventListener('click', ()=>{ if(hover!=null) openMargin(stars[hover]); });
+
+function openMargin(s){
+  const col=V[s.verdict]?.c||'#8FA9C9';
+  const path = s.path ? `https://github.com/${REPO}/blob/main/archive/${s.path}` : `https://github.com/${REPO}`;
+  document.getElementById('marginBody').innerHTML = `
+    <span class="vtag" style="color:${col}">${V[s.verdict]?.label||s.verdict}</span>
+    <h2>${esc(s.title)}</h2>
+    <div class="q">${esc(s.question||'')}</div>
+    <div class="meta">
+      confidence &nbsp; ${(s.confidence??0).toFixed(2)}<br>
+      recorded &nbsp;&nbsp; ${(s.timestamp||'').replace('T',' ').replace('Z',' UTC')}<br>
+      catalog &nbsp;&nbsp;&nbsp; ${esc(s.id||'')}
+    </div>
+    <a class="read" href="${path}" target="_blank" rel="noopener">Read the derivation &rarr;</a>`;
+  document.getElementById('margin').classList.add('open');
+}
+function closeMargin(){ document.getElementById('margin').classList.remove('open'); }
+function esc(x){return (x||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+
+function renderCatalog(items){
+  const by = {PROVEN:0,DISPROVEN:0,OPEN:0,CONJECTURE:0};
+  items.forEach(i=>{ if(by[i.verdict]!=null) by[i.verdict]++; });
+  document.getElementById('catalog').innerHTML =
+    [['proven','Proven','PROVEN'],['disproven','Cleared idols','DISPROVEN'],
+     ['open','Open questions','OPEN'],['conjecture','At the frontier','CONJECTURE']]
+    .map(([cls,lab,k])=>`<div class="cat ${cls}"><b>${by[k]}</b><div class="lab">${lab}</div></div>`).join('');
+}
+
+async function load(){
+  resize();
+  let items=[];
+  try{
+    const r = await fetch('../archive/index.json',{cache:'no-store'});
+    if(r.ok) items = await r.json();
+  }catch(e){}
+  renderCatalog(items);
+  if(!items.length){
+    document.getElementById('emptyNote').innerHTML =
+      '<div class="empty">The first light has not yet been recorded.<br>The scientist is still deriving.</div>';
+    stars=[]; layout(); draw(); return;
+  }
+  stars = items.map(i=>({...i, verdict:(i.verdict||'OPEN').toUpperCase()}));
+  layout(); draw();
+}
+load();
+</script>
+</body>
+</html>

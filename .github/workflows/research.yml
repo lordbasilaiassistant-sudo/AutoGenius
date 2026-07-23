@@ -1,0 +1,39 @@
+name: autogenius-research
+
+# His PC is not 24/7, so the autonomous cadence lives here on GitHub's free
+# compute. Each run does a few cycles and commits new results back to the repo.
+on:
+  schedule:
+    - cron: "0 */6 * * *"   # every 6 hours
+  workflow_dispatch:
+    inputs:
+      cycles:
+        description: "number of research cycles"
+        default: "3"
+
+permissions:
+  contents: write            # so the agent can commit its own findings
+
+concurrency:
+  group: autogenius-research
+  cancel-in-progress: false  # never interrupt a cycle mid-derivation
+
+jobs:
+  think:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - name: identity
+        run: |
+          git config user.name  "autogenius[bot]"
+          git config user.email "actions@users.noreply.github.com"
+      - name: research
+        env:
+          ZAI_API_KEY: ${{ secrets.ZAI_API_KEY }}
+          AG_MAX_DERIVE_STEPS: "4"
+        run: python run.py --cycles ${{ github.event.inputs.cycles || '3' }}

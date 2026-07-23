@@ -1,0 +1,10 @@
+[
+  {"question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?", "significance": 5, "tractability": 5, "novelty": 4},
+  {"question": "Derive the period of a simple pendulum in the small-angle limit from Newton's second law, and verify its dimensions are those of time.", "significance": 3, "tractability": 5, "novelty": 2},
+  {"question": "Derive Kepler's third law (T^2 proportional to a^3) from an inverse-square central force for a circular orbit.", "significance": 4, "tractability": 5, "novelty": 3},
+  {"question": "Show that for a Lagrangian with no explicit time dependence, the energy (Hamiltonian) is conserved — a concrete case of Noether's theorem.", "significance": 5, "tractability": 4, "novelty": 3},
+  {"question": "Derive the ideal gas law PV = NkT from the kinetic theory of an ideal monatomic gas (momentum flux on a wall).", "significance": 4, "tractability": 4, "novelty": 3},
+  {"question": "Using dimensional analysis (Buckingham pi), derive that Rayleigh scattering intensity scales as lambda^-4.", "significance": 4, "tractability": 4, "novelty": 3},
+  {"question": "For the two-body gravitational problem, show the motion reduces to a one-body problem with the reduced mass mu = m1*m2/(m1+m2).", "significance": 3, "tractability": 4, "novelty": 2},
+  {"question": "Numerically estimate the Lyapunov exponent of the logistic map at r=4 and show it is positive (deterministic chaos).", "significance": 4, "tractability": 5, "novelty": 4}
+]
