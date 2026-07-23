@@ -5,8 +5,8 @@
     "significance": 5,
     "tractability": 5,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
   },
@@ -119,5 +119,27 @@
     "status": "open",
     "parent": "q_test_pendulum",
     "added": "2026-07-23T06:13:14Z"
+  },
+  {
+    "id": "q_6aa495e156",
+    "question": "Develop a correct numerical method to accurately compute the bifurcation points r_n of the logistic map and verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
+    "significance": 5,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_56da713672",
+    "added": "2026-07-23T06:19:59Z"
+  },
+  {
+    "id": "q_b7a6017f61",
+    "question": "Correctly derive the Feigenbaum constant δ from the renormalization group theory for the period-doubling cascade, explaining the proper mathematical framework for the functional equation R(f) = αf(αf(α⁻¹x)) = f(x).",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_56da713672",
+    "added": "2026-07-23T06:19:59Z"
   }
 ]

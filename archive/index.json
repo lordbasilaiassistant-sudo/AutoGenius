@@ -7,5 +7,14 @@
     "question": "Derive the period of a simple pendulum in the small-angle limit from Newton's second law, and verify its dimensions are those of time.",
     "path": "established/art_7a1ec098fe_simple-pendulum-period-in-small-angle-limit.md",
     "timestamp": "2026-07-23T06:13:14Z"
+  },
+  {
+    "id": "art_79862e44db",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum Constant Convergence",
+    "confidence": 1.0,
+    "question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?",
+    "path": "disproven/art_79862e44db_feigenbaum-constant-convergence.md",
+    "timestamp": "2026-07-23T06:19:59Z"
   }
 ]
