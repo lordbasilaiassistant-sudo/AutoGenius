@@ -27,8 +27,8 @@
     "significance": 4,
     "tractability": 5,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
   },
@@ -163,5 +163,38 @@
     "status": "open",
     "parent": "q_041d186ddc",
     "added": "2026-07-23T06:29:30Z"
+  },
+  {
+    "id": "q_2b31be9ec5",
+    "question": "Can this derivation be extended to elliptical orbits to show that T^2 ∝ a^3 holds for all conic sections?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_b36b3759dd",
+    "added": "2026-07-23T06:35:12Z"
+  },
+  {
+    "id": "q_419783167e",
+    "question": "How does the proportionality constant in T^2 = (4π^2 * m * a^3) / k relate to the gravitational constant G and the mass of the central body?",
+    "significance": 4,
+    "tractability": 2,
+    "novelty": 1,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_b36b3759dd",
+    "added": "2026-07-23T06:35:12Z"
+  },
+  {
+    "id": "q_ff59fa8e74",
+    "question": "What happens to the relationship when considering relativistic effects or other perturbations to the inverse-square law?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_b36b3759dd",
+    "added": "2026-07-23T06:35:12Z"
   }
 ]

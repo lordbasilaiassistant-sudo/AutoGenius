@@ -10,5 +10,11 @@
     "claim": "The Lyapunov exponent λ of the logistic map f(x) = 4x(1-x) is positive, indicating deterministic chaos.",
     "artifact": "art_3013e71b54_lyapunov-exponent-of-logistic-map-at-r-4.md",
     "added": "2026-07-23T06:29:30Z"
+  },
+  {
+    "id": "art_74911bced6",
+    "claim": "For a circular orbit under an inverse-square central force F = -k/r^2, the square of the orbital period T is proportional to the cube of the orbital radius a, i.e., T^2 ∝ a^3.",
+    "artifact": "art_74911bced6_kepler-s-third-law-from-inverse-square-force.md",
+    "added": "2026-07-23T06:35:12Z"
   }
 ]

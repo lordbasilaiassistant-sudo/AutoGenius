@@ -25,5 +25,14 @@
     "question": "Numerically estimate the Lyapunov exponent of the logistic map at r=4 and show it is positive (deterministic chaos).",
     "path": "established/art_3013e71b54_lyapunov-exponent-of-logistic-map-at-r-4.md",
     "timestamp": "2026-07-23T06:29:30Z"
+  },
+  {
+    "id": "art_74911bced6",
+    "verdict": "PROVEN",
+    "title": "Kepler's Third Law from Inverse-Square Force",
+    "confidence": 1.0,
+    "question": "Derive Kepler's third law (T^2 proportional to a^3) from an inverse-square central force for a circular orbit.",
+    "path": "established/art_74911bced6_kepler-s-third-law-from-inverse-square-force.md",
+    "timestamp": "2026-07-23T06:35:12Z"
   }
 ]
