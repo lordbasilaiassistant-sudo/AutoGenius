@@ -43,5 +43,14 @@
     "question": "Show that for a Lagrangian with no explicit time dependence, the energy (Hamiltonian) is conserved — a concrete case of Noether's theorem.",
     "path": "disproven/art_4baf964549_energy-conservation-in-time-independent-lagrangians.md",
     "timestamp": "2026-07-23T06:39:04Z"
+  },
+  {
+    "id": "art_ac2aa71e8e",
+    "verdict": "DISPROVEN",
+    "title": "Ideal Gas Law Derivation from Kinetic Theory",
+    "confidence": 0.95,
+    "question": "Derive the ideal gas law PV = NkT from the kinetic theory of an ideal monatomic gas (momentum flux on a wall).",
+    "path": "disproven/art_ac2aa71e8e_ideal-gas-law-derivation-from-kinetic-theory.md",
+    "timestamp": "2026-07-23T06:45:56Z"
   }
 ]
