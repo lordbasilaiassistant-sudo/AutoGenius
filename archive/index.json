@@ -70,5 +70,14 @@
     "question": "How does the dimensional inconsistency in ∂L/∂t affect the general formulation of Noether's theorem for time translation symmetry?",
     "path": "disproven/art_e4bc22a992_dimensional-inconsistency-in-lagrangians.md",
     "timestamp": "2026-07-23T13:53:42Z"
+  },
+  {
+    "id": "art_0ec4322deb",
+    "verdict": "DISPROVEN",
+    "title": "Rayleigh Scattering Buckingham Pi Analysis",
+    "confidence": 0.9,
+    "question": "How does the correct Rayleigh scattering formula I = I₀ × (8π⁴/3) × (n²-1)²/(n²+2)² × (a⁶/λ⁴) × (1/r²) emerge from Buckingham pi analysis?",
+    "path": "disproven/art_0ec4322deb_rayleigh-scattering-buckingham-pi-analysis.md",
+    "timestamp": "2026-07-23T14:04:15Z"
   }
 ]

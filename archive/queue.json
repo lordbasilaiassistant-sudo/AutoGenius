@@ -258,8 +258,8 @@
     "significance": 5,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_2f988ea4e0",
     "added": "2026-07-23T13:51:27Z"
   },
@@ -284,5 +284,27 @@
     "status": "open",
     "parent": "q_6eed568916",
     "added": "2026-07-23T13:53:42Z"
+  },
+  {
+    "id": "q_a6d46078a4",
+    "question": "What additional physical principles or assumptions are needed to derive the specific functional form of the Rayleigh scattering formula from Buckingham Pi analysis?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_8ce7a2566b",
+    "added": "2026-07-23T14:04:15Z"
+  },
+  {
+    "id": "q_d8f4c88230",
+    "question": "How does the refractive index term (n²-1)²/(n²+2)² emerge from electromagnetic theory rather than dimensional analysis?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_8ce7a2566b",
+    "added": "2026-07-23T14:04:15Z"
   }
 ]
