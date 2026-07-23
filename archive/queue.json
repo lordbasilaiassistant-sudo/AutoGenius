@@ -60,8 +60,8 @@
     "significance": 4,
     "tractability": 4,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
   },
@@ -251,5 +251,16 @@
     "status": "open",
     "parent": "q_80d3ecd746",
     "added": "2026-07-23T06:45:56Z"
+  },
+  {
+    "id": "q_8ce7a2566b",
+    "question": "How does the correct Rayleigh scattering formula I = I₀ × (8π⁴/3) × (n²-1)²/(n²+2)² × (a⁶/λ⁴) × (1/r²) emerge from Buckingham pi analysis?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_2f988ea4e0",
+    "added": "2026-07-23T13:51:27Z"
   }
 ]

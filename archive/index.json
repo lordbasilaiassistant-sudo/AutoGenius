@@ -52,5 +52,14 @@
     "question": "Derive the ideal gas law PV = NkT from the kinetic theory of an ideal monatomic gas (momentum flux on a wall).",
     "path": "disproven/art_ac2aa71e8e_ideal-gas-law-derivation-from-kinetic-theory.md",
     "timestamp": "2026-07-23T06:45:56Z"
+  },
+  {
+    "id": "art_5e917c4387",
+    "verdict": "DISPROVEN",
+    "title": "Rayleigh Scattering Dimensional Analysis",
+    "confidence": 1.0,
+    "question": "Using dimensional analysis (Buckingham pi), derive that Rayleigh scattering intensity scales as lambda^-4.",
+    "path": "disproven/art_5e917c4387_rayleigh-scattering-dimensional-analysis.md",
+    "timestamp": "2026-07-23T13:51:27Z"
   }
 ]
