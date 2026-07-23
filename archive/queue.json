@@ -214,8 +214,8 @@
     "significance": 5,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_19efb7bbf5",
     "added": "2026-07-23T06:39:04Z"
   },
@@ -262,5 +262,27 @@
     "status": "open",
     "parent": "q_2f988ea4e0",
     "added": "2026-07-23T13:51:27Z"
+  },
+  {
+    "id": "q_5bda963a83",
+    "question": "How can we systematically identify and correct dimensional inconsistencies in Lagrangians before applying Noether's theorem?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_6eed568916",
+    "added": "2026-07-23T13:53:42Z"
+  },
+  {
+    "id": "q_4d30c65f61",
+    "question": "What are the implications for Noether's theorem when dealing with systems where time translation symmetry is broken in a controlled, dimensionally consistent manner?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_6eed568916",
+    "added": "2026-07-23T13:53:42Z"
   }
 ]

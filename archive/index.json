@@ -61,5 +61,14 @@
     "question": "Using dimensional analysis (Buckingham pi), derive that Rayleigh scattering intensity scales as lambda^-4.",
     "path": "disproven/art_5e917c4387_rayleigh-scattering-dimensional-analysis.md",
     "timestamp": "2026-07-23T13:51:27Z"
+  },
+  {
+    "id": "art_e4bc22a992",
+    "verdict": "DISPROVEN",
+    "title": "Dimensional Inconsistency in Lagrangians",
+    "confidence": 1.0,
+    "question": "How does the dimensional inconsistency in ∂L/∂t affect the general formulation of Noether's theorem for time translation symmetry?",
+    "path": "disproven/art_e4bc22a992_dimensional-inconsistency-in-lagrangians.md",
+    "timestamp": "2026-07-23T13:53:42Z"
   }
 ]
