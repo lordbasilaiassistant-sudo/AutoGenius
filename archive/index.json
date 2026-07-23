@@ -34,5 +34,14 @@
     "question": "Derive Kepler's third law (T^2 proportional to a^3) from an inverse-square central force for a circular orbit.",
     "path": "established/art_74911bced6_kepler-s-third-law-from-inverse-square-force.md",
     "timestamp": "2026-07-23T06:35:12Z"
+  },
+  {
+    "id": "art_4baf964549",
+    "verdict": "DISPROVEN",
+    "title": "Energy Conservation in Time-Independent Lagrangians",
+    "confidence": 0.95,
+    "question": "Show that for a Lagrangian with no explicit time dependence, the energy (Hamiltonian) is conserved — a concrete case of Noether's theorem.",
+    "path": "disproven/art_4baf964549_energy-conservation-in-time-independent-lagrangians.md",
+    "timestamp": "2026-07-23T06:39:04Z"
   }
 ]

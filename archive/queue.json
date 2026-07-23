@@ -38,8 +38,8 @@
     "significance": 5,
     "tractability": 4,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
   },
@@ -196,5 +196,38 @@
     "status": "open",
     "parent": "q_b36b3759dd",
     "added": "2026-07-23T06:35:12Z"
+  },
+  {
+    "id": "q_909c375435",
+    "question": "What is the precise condition on the potential energy function V(q) that ensures energy conservation when L has no explicit time dependence?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_19efb7bbf5",
+    "added": "2026-07-23T06:39:04Z"
+  },
+  {
+    "id": "q_6eed568916",
+    "question": "How does the dimensional inconsistency in ∂L/∂t affect the general formulation of Noether's theorem for time translation symmetry?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_19efb7bbf5",
+    "added": "2026-07-23T06:39:04Z"
+  },
+  {
+    "id": "q_efb0a85014",
+    "question": "Can we develop a more general conservation law that accounts for cases where the potential has implicit time dependence through q(t)?",
+    "significance": 4,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_19efb7bbf5",
+    "added": "2026-07-23T06:39:04Z"
   }
 ]
