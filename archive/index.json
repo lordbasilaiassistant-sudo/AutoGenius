@@ -97,5 +97,14 @@
     "question": "Develop a correct numerical method to accurately compute the bifurcation points r_n of the logistic map and verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
     "path": "disproven/art_019b566a2a_feigenbaum-constant-convergence-in-logistic-map.md",
     "timestamp": "2026-07-23T19:16:46Z"
+  },
+  {
+    "id": "art_77087ab918",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum Convergence Verification",
+    "confidence": 1.0,
+    "question": "Implement a robust numerical algorithm with error bounds to verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
+    "path": "disproven/art_77087ab918_feigenbaum-convergence-verification.md",
+    "timestamp": "2026-07-23T19:20:59Z"
   }
 ]

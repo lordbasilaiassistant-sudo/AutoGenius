@@ -335,9 +335,31 @@
     "significance": 5,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_6aa495e156",
     "added": "2026-07-23T19:16:46Z"
+  },
+  {
+    "id": "q_769a64535b",
+    "question": "Implement a correct numerical algorithm to find bifurcation points where the derivative of the 2^n-th iterate equals -1, then verify the convergence rate to the Feigenbaum constant.",
+    "significance": 5,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_cd0c9135ff",
+    "added": "2026-07-23T19:20:59Z"
+  },
+  {
+    "id": "q_ef20edb91f",
+    "question": "Develop a rigorous error analysis for the numerical computation of bifurcation points and the resulting ratios.",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_cd0c9135ff",
+    "added": "2026-07-23T19:20:59Z"
   }
 ]
