@@ -126,8 +126,8 @@
     "significance": 5,
     "tractability": 4,
     "novelty": 2,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_56da713672",
     "added": "2026-07-23T06:19:59Z"
   },
@@ -328,5 +328,16 @@
     "status": "open",
     "parent": "q_4d30c65f61",
     "added": "2026-07-23T19:10:58Z"
+  },
+  {
+    "id": "q_cd0c9135ff",
+    "question": "Implement a robust numerical algorithm with error bounds to verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_6aa495e156",
+    "added": "2026-07-23T19:16:46Z"
   }
 ]

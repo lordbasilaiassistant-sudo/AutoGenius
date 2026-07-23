@@ -88,5 +88,14 @@
     "question": "What are the implications for Noether's theorem when dealing with systems where time translation symmetry is broken in a controlled, dimensionally consistent manner?",
     "path": "disproven/art_4a5fbf5296_dimensional-inconsistency-in-time-dependent-lagrangian.md",
     "timestamp": "2026-07-23T19:10:58Z"
+  },
+  {
+    "id": "art_019b566a2a",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum Constant Convergence in Logistic Map",
+    "confidence": 0.95,
+    "question": "Develop a correct numerical method to accurately compute the bifurcation points r_n of the logistic map and verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
+    "path": "disproven/art_019b566a2a_feigenbaum-constant-convergence-in-logistic-map.md",
+    "timestamp": "2026-07-23T19:16:46Z"
   }
 ]
