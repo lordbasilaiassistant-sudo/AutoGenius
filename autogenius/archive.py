@@ -159,6 +159,11 @@ def commit_and_push(message: str, push: bool = True) -> str:
     if push:
         p = _git("push")
         if p.returncode != 0:
-            return f"committed locally; push failed: {p.stderr[:200]}"
+            # concurrent writer (another cycle / the cloud cron) got there first:
+            # rebase our single commit on top of theirs and retry once.
+            _git("pull", "--rebase")
+            p = _git("push")
+            if p.returncode != 0:
+                return f"committed locally; push failed: {p.stderr[:200]}"
         return "committed and pushed"
     return "committed locally"

@@ -1,0 +1,11 @@
+[
+  {
+    "id": "art_7a1ec098fe",
+    "verdict": "PROVEN",
+    "title": "Simple Pendulum Period in Small-Angle Limit",
+    "confidence": 0.95,
+    "question": "Derive the period of a simple pendulum in the small-angle limit from Newton's second law, and verify its dimensions are those of time.",
+    "path": "established/art_7a1ec098fe_simple-pendulum-period-in-small-angle-limit.md",
+    "timestamp": "2026-07-23T06:13:14Z"
+  }
+]

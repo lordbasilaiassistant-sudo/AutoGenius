@@ -86,5 +86,38 @@
     "status": "open",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
+  },
+  {
+    "id": "q_063893778d",
+    "question": "What is the correction to the period formula for larger angles, and how does it relate to elliptic integrals?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_test_pendulum",
+    "added": "2026-07-23T06:13:14Z"
+  },
+  {
+    "id": "q_dbb6aa696d",
+    "question": "How does the period formula change for a pendulum with a distributed mass rather than a point mass?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_test_pendulum",
+    "added": "2026-07-23T06:13:14Z"
+  },
+  {
+    "id": "q_6026769e04",
+    "question": "Can we derive a more accurate small-angle approximation by including the next term in the Taylor expansion of sin(θ)?",
+    "significance": 2,
+    "tractability": 4,
+    "novelty": 1,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_test_pendulum",
+    "added": "2026-07-23T06:13:14Z"
   }
 ]

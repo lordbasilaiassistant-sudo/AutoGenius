@@ -38,6 +38,8 @@ THE SANDBOX — your instrument for making math real:
   free symbols; (b) define every symbol before use (`t = symbols('t')`); (c) for numerics
   use numpy (`np.`), for symbolics use sympy — don't mix; (d) keep each block short and
   runnable, building on the last.
+- EACH block runs in a FRESH process — variables do NOT persist between blocks.
+  Redefine every symbol/function you need at the top of each block.
 - When your reasoning is finished and needs no more computation, reply WITHOUT
   any python block and begin your final message with the line: DONE
 """
