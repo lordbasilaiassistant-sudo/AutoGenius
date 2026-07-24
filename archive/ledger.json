@@ -16,5 +16,11 @@
     "claim": "For a circular orbit under an inverse-square central force F = -k/r^2, the square of the orbital period T is proportional to the cube of the orbital radius a, i.e., T^2 ∝ a^3.",
     "artifact": "art_74911bced6_kepler-s-third-law-from-inverse-square-force.md",
     "added": "2026-07-23T06:35:12Z"
+  },
+  {
+    "id": "art_80430756f1",
+    "claim": "The Lyapunov exponent λ for the logistic map f(x) = 4x(1-x) at r=4 is exactly ln(2), derived from the limit definition λ = lim_{N→∞} (1/N) Σ_{n=0}^{N-1} ln|f'(x_n)|, where x_n is the trajectory starting from x_0 in (0,1).",
+    "artifact": "art_80430756f1_lyapunov-exponent-for-logistic-map-at-r-4.md",
+    "added": "2026-07-24T02:10:14Z"
   }
 ]

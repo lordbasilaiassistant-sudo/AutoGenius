@@ -106,5 +106,14 @@
     "question": "Implement a robust numerical algorithm with error bounds to verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
     "path": "disproven/art_77087ab918_feigenbaum-convergence-verification.md",
     "timestamp": "2026-07-23T19:20:59Z"
+  },
+  {
+    "id": "art_80430756f1",
+    "verdict": "PROVEN",
+    "title": "Lyapunov Exponent for Logistic Map at r=4",
+    "confidence": 0.99,
+    "question": "What is the exact analytical expression for the Lyapunov exponent at r=4?",
+    "path": "established/art_80430756f1_lyapunov-exponent-for-logistic-map-at-r-4.md",
+    "timestamp": "2026-07-24T02:10:14Z"
   }
 ]

@@ -148,8 +148,8 @@
     "significance": 5,
     "tractability": 2,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_041d186ddc",
     "added": "2026-07-23T06:29:30Z"
   },
@@ -361,5 +361,27 @@
     "status": "open",
     "parent": "q_cd0c9135ff",
     "added": "2026-07-23T19:20:59Z"
+  },
+  {
+    "id": "q_0b9ff3783f",
+    "question": "Can the conjugacy method be extended to determine Lyapunov exponents for other values of r in the logistic map?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_195c4016ef",
+    "added": "2026-07-24T02:10:14Z"
+  },
+  {
+    "id": "q_227fe8912c",
+    "question": "What is the precise measure-theoretic justification for ignoring the set of points where f'(x)=0 in the numerical computation?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_195c4016ef",
+    "added": "2026-07-24T02:10:14Z"
   }
 ]
