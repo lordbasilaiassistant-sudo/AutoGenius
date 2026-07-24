@@ -151,5 +151,14 @@
     "question": "Can a rigorous error bound be established for the numerical computation of r_n that accounts for the accumulation of errors in iterative methods?",
     "path": "disproven/art_f1aa8ef1d4_error-bound-for-logistic-map-bifurcation-points.md",
     "timestamp": "2026-07-24T08:23:50Z"
+  },
+  {
+    "id": "art_e213e6d6ed",
+    "verdict": "DISPROVEN",
+    "title": "Sensitivity of Bifurcation Points in Logistic Map",
+    "confidence": 0.95,
+    "question": "How does the sensitivity of bifurcation points actually scale with n in the logistic map?",
+    "path": "disproven/art_e213e6d6ed_sensitivity-of-bifurcation-points-in-logistic-map.md",
+    "timestamp": "2026-07-24T08:38:55Z"
   }
 ]

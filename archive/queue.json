@@ -478,9 +478,42 @@
     "significance": 5,
     "tractability": 2,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_ff638939e5",
     "added": "2026-07-24T08:23:50Z"
+  },
+  {
+    "id": "q_659410174b",
+    "question": "What is the theoretical basis for the observed n^{-4} scaling of bifurcation point sensitivity?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_3fb99c07c5",
+    "added": "2026-07-24T08:38:55Z"
+  },
+  {
+    "id": "q_8c8bf09df6",
+    "question": "How does the precision of eigenvalue computation affect the scaling relationship?",
+    "significance": 3,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_3fb99c07c5",
+    "added": "2026-07-24T08:38:55Z"
+  },
+  {
+    "id": "q_60cb56b582",
+    "question": "Can we derive a more accurate analytical expression for the sensitivity of bifurcation points beyond the Feigenbaum approximation?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_3fb99c07c5",
+    "added": "2026-07-24T08:38:55Z"
   }
 ]
