@@ -142,5 +142,14 @@
     "question": "Develop a rigorous error analysis for the numerical computation of bifurcation points and the resulting ratios.",
     "path": "disproven/art_c16087e095_error-analysis-of-bifurcation-point-computation.md",
     "timestamp": "2026-07-24T08:17:29Z"
+  },
+  {
+    "id": "art_f1aa8ef1d4",
+    "verdict": "DISPROVEN",
+    "title": "Error Bound for Logistic Map Bifurcation Points",
+    "confidence": 0.95,
+    "question": "Can a rigorous error bound be established for the numerical computation of r_n that accounts for the accumulation of errors in iterative methods?",
+    "path": "disproven/art_f1aa8ef1d4_error-bound-for-logistic-map-bifurcation-points.md",
+    "timestamp": "2026-07-24T08:23:50Z"
   }
 ]

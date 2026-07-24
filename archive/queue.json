@@ -445,8 +445,8 @@
     "significance": 5,
     "tractability": 2,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_ef20edb91f",
     "added": "2026-07-24T08:17:29Z"
   },
@@ -460,5 +460,27 @@
     "status": "open",
     "parent": "q_ef20edb91f",
     "added": "2026-07-24T08:17:29Z"
+  },
+  {
+    "id": "q_ee33d06f71",
+    "question": "What is the correct error propagation model for numerical computation of bifurcation points in the logistic map?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ff638939e5",
+    "added": "2026-07-24T08:23:50Z"
+  },
+  {
+    "id": "q_3fb99c07c5",
+    "question": "How does the sensitivity of bifurcation points actually scale with n in the logistic map?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ff638939e5",
+    "added": "2026-07-24T08:23:50Z"
   }
 ]
