@@ -10,11 +10,11 @@
   },
   {
     "id": "art_79862e44db",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Feigenbaum Constant Convergence",
     "confidence": 1.0,
     "question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?",
-    "path": "disproven/art_79862e44db_feigenbaum-constant-convergence.md",
+    "path": "open/art_79862e44db_feigenbaum-constant-convergence.md",
     "timestamp": "2026-07-23T06:19:59Z"
   },
   {
@@ -37,11 +37,11 @@
   },
   {
     "id": "art_4baf964549",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Energy Conservation in Time-Independent Lagrangians",
     "confidence": 0.95,
     "question": "Show that for a Lagrangian with no explicit time dependence, the energy (Hamiltonian) is conserved — a concrete case of Noether's theorem.",
-    "path": "disproven/art_4baf964549_energy-conservation-in-time-independent-lagrangians.md",
+    "path": "open/art_4baf964549_energy-conservation-in-time-independent-lagrangians.md",
     "timestamp": "2026-07-23T06:39:04Z"
   },
   {
@@ -64,11 +64,11 @@
   },
   {
     "id": "art_e4bc22a992",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Dimensional Inconsistency in Lagrangians",
     "confidence": 1.0,
     "question": "How does the dimensional inconsistency in ∂L/∂t affect the general formulation of Noether's theorem for time translation symmetry?",
-    "path": "disproven/art_e4bc22a992_dimensional-inconsistency-in-lagrangians.md",
+    "path": "open/art_e4bc22a992_dimensional-inconsistency-in-lagrangians.md",
     "timestamp": "2026-07-23T13:53:42Z"
   },
   {
@@ -91,20 +91,20 @@
   },
   {
     "id": "art_019b566a2a",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Feigenbaum Constant Convergence in Logistic Map",
     "confidence": 0.95,
     "question": "Develop a correct numerical method to accurately compute the bifurcation points r_n of the logistic map and verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
-    "path": "disproven/art_019b566a2a_feigenbaum-constant-convergence-in-logistic-map.md",
+    "path": "open/art_019b566a2a_feigenbaum-constant-convergence-in-logistic-map.md",
     "timestamp": "2026-07-23T19:16:46Z"
   },
   {
     "id": "art_77087ab918",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Feigenbaum Convergence Verification",
     "confidence": 1.0,
     "question": "Implement a robust numerical algorithm with error bounds to verify the convergence of the ratio (r_n - r_{n-1}) / (r_{n+1} - r_n) to the Feigenbaum constant.",
-    "path": "disproven/art_77087ab918_feigenbaum-convergence-verification.md",
+    "path": "open/art_77087ab918_feigenbaum-convergence-verification.md",
     "timestamp": "2026-07-23T19:20:59Z"
   },
   {
@@ -118,38 +118,38 @@
   },
   {
     "id": "art_736f6b4446",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Feigenbaum Convergence Analysis",
     "confidence": 0.95,
     "question": "Implement a correct numerical algorithm to find bifurcation points where the derivative of the 2^n-th iterate equals -1, then verify the convergence rate to the Feigenbaum constant.",
-    "path": "disproven/art_736f6b4446_feigenbaum-convergence-analysis.md",
+    "path": "open/art_736f6b4446_feigenbaum-convergence-analysis.md",
     "timestamp": "2026-07-24T02:16:02Z"
   },
   {
     "id": "art_a1b74b24f3",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Relativistic Effective Potential for Inverse-Square Law",
     "confidence": 0.9,
     "question": "What happens to the relationship when considering relativistic effects or other perturbations to the inverse-square law?",
-    "path": "disproven/art_a1b74b24f3_relativistic-effective-potential-for-inverse-square-law.md",
+    "path": "open/art_a1b74b24f3_relativistic-effective-potential-for-inverse-square-law.md",
     "timestamp": "2026-07-24T02:22:04Z"
   },
   {
     "id": "art_c16087e095",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Error Analysis of Bifurcation Point Computation",
     "confidence": 0.95,
     "question": "Develop a rigorous error analysis for the numerical computation of bifurcation points and the resulting ratios.",
-    "path": "disproven/art_c16087e095_error-analysis-of-bifurcation-point-computation.md",
+    "path": "open/art_c16087e095_error-analysis-of-bifurcation-point-computation.md",
     "timestamp": "2026-07-24T08:17:29Z"
   },
   {
     "id": "art_f1aa8ef1d4",
-    "verdict": "DISPROVEN",
+    "verdict": "OPEN",
     "title": "Error Bound for Logistic Map Bifurcation Points",
     "confidence": 0.95,
     "question": "Can a rigorous error bound be established for the numerical computation of r_n that accounts for the accumulation of errors in iterative methods?",
-    "path": "disproven/art_f1aa8ef1d4_error-bound-for-logistic-map-bifurcation-points.md",
+    "path": "open/art_f1aa8ef1d4_error-bound-for-logistic-map-bifurcation-points.md",
     "timestamp": "2026-07-24T08:23:50Z"
   },
   {

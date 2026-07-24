@@ -241,8 +241,13 @@ def run_cycle(question: dict) -> CycleResult:
     claim = conj.get("claim", question["question"])
     _log(f"  [conjecture] {time.time()-t0:.0f}s -> {claim[:80]}")
 
-    # anti-loop layer 3: refuse to re-prove something already established
-    dup = semantic_duplicate(claim, [e["claim"] for e in led_entries])
+    # anti-loop layer 3: refuse to re-litigate anything already decided —
+    # proven claims from the ledger AND disproven claims from the index
+    # (the old ledger-only check let Feigenbaum be re-disproven four times)
+    decided = [e["claim"] for e in led_entries]
+    decided += [e["title"] for e in state.load_index()
+                if e.get("verdict") == "DISPROVEN"]
+    dup = semantic_duplicate(claim, decided)
     if dup.get("duplicate"):
         return CycleResult(question, conj, Reasoning(""), Reasoning(""),
                            {"title": claim[:80], "verdict": "DUPLICATE", "confidence": 1.0,
