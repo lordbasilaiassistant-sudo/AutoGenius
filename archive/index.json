@@ -169,5 +169,14 @@
     "question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?",
     "path": "open/art_af3bc3f41b_feigenbaum-constant-convergence.md",
     "timestamp": "2026-07-24T13:40:18Z"
+  },
+  {
+    "id": "art_1c2719c3cd",
+    "verdict": "DISPROVEN",
+    "title": "Error Propagation in Logistic Map Calculations",
+    "confidence": 0.9,
+    "question": "What is the precise relationship between machine precision ε and the computational error in r_n, and how does this error propagate through the calculation of δ_n?",
+    "path": "disproven/art_1c2719c3cd_error-propagation-in-logistic-map-calculations.md",
+    "timestamp": "2026-07-24T19:28:06Z"
   }
 ]

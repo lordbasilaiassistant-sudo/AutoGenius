@@ -434,8 +434,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_ef20edb91f",
     "added": "2026-07-24T08:17:29Z"
   },
@@ -490,9 +490,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_3fb99c07c5",
-    "added": "2026-07-24T08:38:55Z"
+    "added": "2026-07-24T08:38:55Z",
+    "note": "Already established — Both concern sensitivity of bifurcation points in the logistic map."
   },
   {
     "id": "q_8c8bf09df6",
@@ -549,5 +550,38 @@
     "status": "open",
     "parent": "q_56da713672",
     "added": "2026-07-24T13:40:18Z"
+  },
+  {
+    "id": "q_e0da49636b",
+    "question": "What is the correct error propagation formula for the logistic map when delta_n approaches zero?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_99f6b8c022",
+    "added": "2026-07-24T19:28:06Z"
+  },
+  {
+    "id": "q_ca75412729",
+    "question": "How does the error propagation change when the logistic map is in periodic regimes versus chaotic regimes?",
+    "significance": 3,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_99f6b8c022",
+    "added": "2026-07-24T19:28:06Z"
+  },
+  {
+    "id": "q_5c24c22dbe",
+    "question": "Can we derive a more robust error formula that accounts for the non-linear behavior of the logistic map near critical points?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_99f6b8c022",
+    "added": "2026-07-24T19:28:06Z"
   }
 ]
