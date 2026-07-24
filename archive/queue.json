@@ -579,9 +579,31 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 5,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_99f6b8c022",
     "added": "2026-07-24T19:28:06Z"
+  },
+  {
+    "id": "q_d8586fd95f",
+    "question": "Does the error propagation formula change at the bifurcation point r_c = 3 where f'(r_c) = 1?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_5c24c22dbe",
+    "added": "2026-07-24T19:32:41Z"
+  },
+  {
+    "id": "q_3f55dfa44b",
+    "question": "Can we derive a general error propagation formula for the logistic map that accounts for both parameter errors and state errors?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_5c24c22dbe",
+    "added": "2026-07-24T19:32:41Z"
   }
 ]

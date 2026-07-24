@@ -178,5 +178,14 @@
     "question": "What is the precise relationship between machine precision ε and the computational error in r_n, and how does this error propagate through the calculation of δ_n?",
     "path": "disproven/art_1c2719c3cd_error-propagation-in-logistic-map-calculations.md",
     "timestamp": "2026-07-24T19:28:06Z"
+  },
+  {
+    "id": "art_b9148320c1",
+    "verdict": "DISPROVEN",
+    "title": "Error Propagation in Logistic Map Near Critical Points",
+    "confidence": 0.95,
+    "question": "Can we derive a more robust error formula that accounts for the non-linear behavior of the logistic map near critical points?",
+    "path": "disproven/art_b9148320c1_error-propagation-in-logistic-map-near-critical-points.md",
+    "timestamp": "2026-07-24T19:32:41Z"
   }
 ]
