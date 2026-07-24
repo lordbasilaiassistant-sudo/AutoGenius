@@ -133,5 +133,14 @@
     "question": "What happens to the relationship when considering relativistic effects or other perturbations to the inverse-square law?",
     "path": "disproven/art_a1b74b24f3_relativistic-effective-potential-for-inverse-square-law.md",
     "timestamp": "2026-07-24T02:22:04Z"
+  },
+  {
+    "id": "art_c16087e095",
+    "verdict": "DISPROVEN",
+    "title": "Error Analysis of Bifurcation Point Computation",
+    "confidence": 0.95,
+    "question": "Develop a rigorous error analysis for the numerical computation of bifurcation points and the resulting ratios.",
+    "path": "disproven/art_c16087e095_error-analysis-of-bifurcation-point-computation.md",
+    "timestamp": "2026-07-24T08:17:29Z"
   }
 ]

@@ -357,8 +357,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_cd0c9135ff",
     "added": "2026-07-23T19:20:59Z"
   },
@@ -427,5 +427,38 @@
     "status": "open",
     "parent": "q_ff59fa8e74",
     "added": "2026-07-24T02:22:04Z"
+  },
+  {
+    "id": "q_99f6b8c022",
+    "question": "What is the precise relationship between machine precision ε and the computational error in r_n, and how does this error propagate through the calculation of δ_n?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ef20edb91f",
+    "added": "2026-07-24T08:17:29Z"
+  },
+  {
+    "id": "q_ff638939e5",
+    "question": "Can a rigorous error bound be established for the numerical computation of r_n that accounts for the accumulation of errors in iterative methods?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ef20edb91f",
+    "added": "2026-07-24T08:17:29Z"
+  },
+  {
+    "id": "q_2647642bdc",
+    "question": "How does the choice of numerical method (e.g., Newton-Raphson vs. bisection) affect the scaling of error in computing bifurcation points?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ef20edb91f",
+    "added": "2026-07-24T08:17:29Z"
   }
 ]
