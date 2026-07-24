@@ -7,7 +7,7 @@ reviews its own recent work and sharpens the instrument.
 """
 from __future__ import annotations
 
-from . import glm, personas, state
+from . import codex, glm, personas, state
 
 
 def reflect() -> dict:
@@ -35,7 +35,9 @@ Return ONLY JSON:
   "new_questions": [
     {{"question": "a deeper frontier question your proven results now make tractable", "significance": 1-5, "tractability": 1-5, "novelty": 1-5}}
   ]
-}}"""
+}}
+Give 2-4 new questions. When crafting them, apply:
+{codex.QUESTION_CRAFT}"""
     out = glm.chat_json(personas.THE_SCIENTIST, user, temperature=0.7, max_tokens=1200)
     lesson = (out.get("lesson") or "").strip()
     if lesson:

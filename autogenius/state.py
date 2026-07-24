@@ -128,6 +128,34 @@ def add_index_entry(entry: dict) -> None:
     _save(config.INDEX_JSON, idx)
 
 
+# --- methods library (proven lemmas, reusable across cycles) ----------------
+def methods_for_prompt(limit_chars: int = 1200) -> str:
+    """Compact '- name: statement' list of every extracted method, so the
+    scientist reuses proven lemmas instead of rederiving from bare axioms.
+    This is where scaffold-level capability actually compounds."""
+    if not config.METHODS.exists():
+        return ""
+    lines = []
+    for p in sorted(config.METHODS.glob("*.md")):
+        try:
+            txt = p.read_text(encoding="utf-8")
+        except Exception:
+            continue
+        name, statement = p.stem, ""
+        for ln in txt.splitlines():
+            ln = ln.strip()
+            if ln.startswith("# "):
+                name = ln[2:].strip()
+            elif ln and not ln.startswith(("#", "_")):
+                statement = ln
+                break
+        lines.append(f"- {name}: {statement}"[:220])
+    if not lines:
+        return ""
+    body = "\n".join(lines)[-limit_chars:]
+    return f"\nPROVEN METHODS YOU MAY CITE AND REUSE (each traces to an archived proof):\n{body}\n"
+
+
 # --- lessons (the RSI prompt layer) ----------------------------------------
 def load_lessons() -> str:
     if not config.LESSONS_MD.exists():

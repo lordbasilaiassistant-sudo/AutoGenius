@@ -21,15 +21,21 @@ import traceback
 from autogenius import archive, config, rsi, state
 
 
-def seed_if_empty() -> None:
+def seed_topup(min_open: int = 3) -> None:
+    """Keep the frontier alive: whenever open questions run low, offer the seed
+    curriculum again. The novelty guard drops everything already asked or
+    settled, so only genuinely uncovered seeds enter."""
     q = state.load_queue()
-    if q:
+    n_open = sum(1 for x in q if x.get("status", "open") == "open")
+    if n_open >= min_open:
         return
     seed_path = config.REPO_ROOT / "seed_questions.json"
     seeds = json.loads(seed_path.read_text(encoding="utf-8")) if seed_path.exists() else []
-    q = state.add_questions([], seeds)
+    before = len(q)
+    q = state.add_questions(q, seeds, parent="seed")
     state.save_queue(q)
-    print(f"[orient] seeded {len(q)} frontier questions")
+    if len(q) > before:
+        print(f"[orient] seeded {len(q) - before} frontier questions ({n_open} were open)")
 
 
 def one_cycle(push: bool) -> bool:
@@ -80,11 +86,11 @@ def main() -> int:
     ap.add_argument("--no-push", action="store_true")
     args = ap.parse_args()
 
-    seed_if_empty()
     push = not args.no_push
     n = 0
     target = float("inf") if args.forever else (1 if args.once else args.cycles)
     while n < target:
+        seed_topup()
         did = one_cycle(push)
         n += 1
         if not did and not args.forever:

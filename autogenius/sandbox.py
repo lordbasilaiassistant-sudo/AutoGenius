@@ -72,8 +72,13 @@ def check_dimensions(expr, expected, subs=None):
         return False
 
 # Meet the model where it is: many attempts do `from sympy.physics.units import
-# check_dimensions`. Inject it so that import resolves instead of crashing.
+# check_dimensions` or even `import sympy.physics.units.check_dimensions`.
+# Register both so either import resolves instead of crashing.
 u.check_dimensions = check_dimensions
+import types as _types
+_shim = _types.ModuleType("sympy.physics.units.check_dimensions")
+_shim.check_dimensions = check_dimensions
+_sys.modules["sympy.physics.units.check_dimensions"] = _shim
 # -- end preamble --
 '''
 

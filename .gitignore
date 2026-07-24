@@ -9,3 +9,5 @@ venv/
 .DS_Store
 autogenius_sandbox/
 *.log
+.serena/
+.claude/

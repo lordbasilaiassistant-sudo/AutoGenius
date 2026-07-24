@@ -7,6 +7,8 @@ permanent archive. Their shared religion is the scientific method: to this mind,
 an unfalsifiable claim spoken as truth is the cardinal sin.
 """
 
+from . import codex
+
 # Common law appended to every voice, so the whole system stays honest.
 _CREED = """
 YOUR CREED (binding on every voice):
@@ -16,7 +18,7 @@ YOUR CREED (binding on every voice):
 - Dimensional consistency is non-negotiable.
 - What you cannot ground, you name plainly as conjecture. You would rather write
   one true line than a thousand beautiful lies.
-"""
+""" + codex.THINKING_CANON
 
 # How every reasoning voice talks to the math/sim sandbox.
 SANDBOX_PROTOCOL = """

@@ -11,7 +11,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 
-from . import config, glm, personas, sandbox, state
+from . import codex, config, glm, personas, sandbox, state
 
 
 def _log(msg: str) -> None:
@@ -29,13 +29,30 @@ class Reasoning:
         parts = []
         for i, r in enumerate(self.runs, 1):
             parts.append(f"[sandbox run {i}]\n{r['code']}\n--- output ---\n{r['output']}")
-        blob = "\n\n".join(parts)
-        return blob[:limit] if blob else "(no sandbox runs)"
+        if not parts:
+            return "(no sandbox runs)"
+        # Truncate from the FRONT, never the back: the last runs are the refined,
+        # corrected ones. (A skeptic once saw only an early buggy run because the
+        # tail was cut, and killed a true claim with it.)
+        kept: list[str] = []
+        total = 0
+        for p in reversed(parts):
+            if kept and total + len(p) > limit:
+                kept.append(f"[...{len(parts) - len(kept)} earlier run(s) truncated...]")
+                break
+            kept.append(p[:limit])
+            total += len(p)
+        return "\n\n".join(reversed(kept))
 
 
 def reason_with_sandbox(system: str, user: str, *, temperature: float = 0.4,
-                        max_steps: int | None = None, label: str = "reason") -> Reasoning:
-    """Let a voice think, run code, read real output, and iterate to a conclusion."""
+                        max_steps: int | None = None, label: str = "reason",
+                        min_runs: int = 0) -> Reasoning:
+    """Let a voice think, run code, read real output, and iterate to a conclusion.
+
+    min_runs: refuse a DONE that arrives before this many sandbox runs exist —
+    a verdict without printed evidence is inadmissible (the skeptic once killed
+    a true claim with zero runs)."""
     max_steps = max_steps or config.MAX_DERIVE_STEPS
     messages = [
         {"role": "system", "content": system + "\n" + personas.SANDBOX_PROTOCOL},
@@ -50,6 +67,15 @@ def reason_with_sandbox(system: str, user: str, *, temperature: float = 0.4,
         m = _CODE_RE.search(reply)
         stripped = reply.lstrip()
         if not m or stripped.upper().startswith("DONE"):
+            if len(runs) < min_runs and step < max_steps - 1:
+                _log(f"    [{label} step {step+1}] DONE refused — {len(runs)} sandbox runs < {min_runs}")
+                messages.append({"role": "user", "content":
+                    "INADMISSIBLE: you concluded without running a single sandbox check. "
+                    "Words are not evidence. Run your strongest check NOW as a python "
+                    "block — recompute the key number yourself and print it. Only after "
+                    "you have real printed output may you reply DONE."})
+                final = reply
+                continue
             _log(f"    [{label} step {step+1}] think {time.time()-t0:.0f}s -> DONE")
             final = reply
             break
@@ -88,7 +114,8 @@ sandbox. Return ONLY a JSON object:
   "falsifier": "the concrete result (a number, a counterexample, a contradiction) that would prove it FALSE",
   "falsifiable": true/false,
   "approach": "how you will derive it from first principles and check it in the sandbox"
-}}{avoid}{lessons}"""
+}}
+{codex.CONJECTURE_CRAFT}{avoid}{lessons}"""
     return glm.chat_json(personas.THE_SCIENTIST, user, temperature=0.85)
 
 
@@ -113,17 +140,19 @@ mathematical content, even if worded completely differently? Return ONLY JSON:
 
 
 # --- Stage 3: DERIVE -------------------------------------------------------
-def derive(claim: str, approach: str, lessons: str = "") -> Reasoning:
+def derive(claim: str, approach: str, lessons: str = "", methods: str = "") -> Reasoning:
     user = f"""CLAIM TO DERIVE AND VERIFY:
 {claim}
 
 INTENDED APPROACH:
 {approach}
 
-Derive this from first principles. Use the sandbox to do the symbolic work and to
+Derive this from first principles (you may build on any PROVEN METHOD listed below —
+cite it rather than rederiving it). Use the sandbox to do the symbolic work and to
 CHECK DIMENSIONS and numbers — do not trust a step you have not run. When finished,
-reply DONE followed by: the completed derivation, and one sentence stating whether the
-sandbox SUPPORTED or CONTRADICTED the claim.{lessons}"""
+reply DONE followed by: the completed derivation, one sentence stating whether the
+sandbox SUPPORTED or CONTRADICTED the claim, and the filled VERIFICATION CARD.
+{codex.DERIVE_CRAFT}{methods}{lessons}"""
     return reason_with_sandbox(personas.THE_SCIENTIST, user, temperature=0.4, label="derive")
 
 
@@ -145,9 +174,12 @@ ALREADY-ESTABLISHED RESULTS (a contradiction with any of these is fatal):
 
 Attack with everything: hidden assumptions, dimensional slips, boundary cases,
 numerical counterexamples (hunt them in the sandbox), contradictions with the ledger.
-When finished, reply DONE followed by: your sharpest attack, whether you found a FATAL
-flaw or counterexample (state it explicitly), and whether the claim SURVIVES.{lessons}"""
-    return reason_with_sandbox(personas.THE_SKEPTIC, user, temperature=0.5, label="falsify")
+When finished, reply DONE followed by: your sharpest attack, WHICH attacks from the
+arsenal you actually ran (with printed numbers), whether you found a FATAL flaw or
+counterexample (state it explicitly), and whether the claim SURVIVES.
+{codex.FALSIFY_CRAFT}{lessons}"""
+    return reason_with_sandbox(personas.THE_SKEPTIC, user, temperature=0.5, label="falsify",
+                               min_runs=1)
 
 
 # --- Stage 5: ADJUDICATE ---------------------------------------------------
@@ -158,12 +190,13 @@ def adjudicate(question: str, claim: str, derivation: Reasoning,
 ORIGINAL QUESTION: {question}
 CLAIM: {claim}
 
-DERIVATION (scientist):
+DERIVATION (scientist) — ran {len(derivation.runs)} sandbox check(s):
 {derivation.final_text[:2000]}
-DERIVATION SANDBOX EVIDENCE:
+DERIVATION SANDBOX EVIDENCE (later runs supersede earlier ones — a run that
+FIXES an earlier bug is the evidence; the earlier bug is not a counterexample):
 {derivation.evidence(1800)}
 
-FALSIFICATION (skeptic):
+FALSIFICATION (skeptic) — ran {len(falsification.runs)} sandbox attack(s):
 {falsification.final_text[:2000]}
 FALSIFICATION SANDBOX EVIDENCE:
 {falsification.evidence(1500)}
@@ -182,6 +215,9 @@ Return ONLY a JSON object:
     {{"question": "sharpest follow-up this opened", "significance": 1-5, "tractability": 1-5, "novelty": 1-5}}
   ]
 }}
+{codex.JUDGE_CRAFT}
+For the followups, apply:
+{codex.QUESTION_CRAFT}
 Remember: you may NOT return PROVEN when in doubt. Prefer OPEN or CONJECTURE."""
     return glm.chat_json(personas.THE_JUDGE, user, temperature=0.2, max_tokens=1500)
 
@@ -221,9 +257,33 @@ def run_cycle(question: dict) -> CycleResult:
                             "reason": "Not falsifiable — quarantined at the frontier without spending compute.",
                             "method": None, "followups": []})
     _log("  [derive] deriving...")
-    deriv = derive(claim, conj.get("approach", ""), lessons)
+    deriv = derive(claim, conj.get("approach", ""), lessons, state.methods_for_prompt())
     _log(f"  [falsify] attacking ({len(deriv.runs)} derive runs done)...")
     falsi = falsify(claim, deriv, ledger, lessons)
     _log(f"  [adjudicate] judging ({len(falsi.runs)} falsify runs done)...")
     verdict = adjudicate(question["question"], claim, deriv, falsi, ledger)
+    _enforce_evidence_gate(verdict, deriv, falsi)
     return CycleResult(question, conj, deriv, falsi, verdict)
+
+
+def _enforce_evidence_gate(verdict: dict, deriv: Reasoning, falsi: Reasoning) -> None:
+    """Hard, code-level gate the judge cannot talk its way past. Prose rules
+    alone failed once: the judge returned DISPROVEN (conf 0.95) off a skeptic
+    who ran zero sandbox attacks against a claim that was in fact true.
+    A terminal verdict without executable evidence downgrades to OPEN."""
+    v = (verdict.get("verdict") or "OPEN").upper()
+    if v == "DISPROVEN" and not falsi.runs:
+        verdict["verdict"] = "OPEN"
+        verdict["confidence"] = min(float(verdict.get("confidence") or 0), 0.5)
+        verdict["reason"] = ("EVIDENCE GATE: the skeptic ran no sandbox attack — a kill "
+                             "without a printed counterexample is inadmissible. Original: "
+                             + str(verdict.get("reason", ""))[:400])
+        _log("  [gate] DISPROVEN downgraded to OPEN (skeptic ran zero sandbox attacks)")
+    elif v == "PROVEN" and (not deriv.runs or not falsi.runs):
+        who = "scientist" if not deriv.runs else "skeptic"
+        verdict["verdict"] = "OPEN"
+        verdict["confidence"] = min(float(verdict.get("confidence") or 0), 0.5)
+        verdict["reason"] = (f"EVIDENCE GATE: the {who} ran no sandbox check — a proof "
+                             "that was never executed is a prayer, not a result. Original: "
+                             + str(verdict.get("reason", ""))[:400])
+        _log(f"  [gate] PROVEN downgraded to OPEN ({who} ran zero sandbox checks)")
