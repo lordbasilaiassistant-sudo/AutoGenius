@@ -160,5 +160,14 @@
     "question": "How does the sensitivity of bifurcation points actually scale with n in the logistic map?",
     "path": "disproven/art_e213e6d6ed_sensitivity-of-bifurcation-points-in-logistic-map.md",
     "timestamp": "2026-07-24T08:38:55Z"
+  },
+  {
+    "id": "art_af3bc3f41b",
+    "verdict": "OPEN",
+    "title": "Feigenbaum Constant Convergence",
+    "confidence": 0.6,
+    "question": "Measure Feigenbaum's constant delta from the period-doubling cascade of the logistic map x -> r*x*(1-x). Does it converge to ~4.6692?",
+    "path": "open/art_af3bc3f41b_feigenbaum-constant-convergence.md",
+    "timestamp": "2026-07-24T13:40:18Z"
   }
 ]

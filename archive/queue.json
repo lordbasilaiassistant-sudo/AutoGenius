@@ -5,7 +5,7 @@
     "significance": 5,
     "tractability": 5,
     "novelty": 4,
-    "attempts": 1,
+    "attempts": 2,
     "status": "open",
     "parent": null,
     "added": "2026-07-23T05:34:06Z"
@@ -512,8 +512,42 @@
     "tractability": 3,
     "novelty": 5,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_3fb99c07c5",
-    "added": "2026-07-24T08:38:55Z"
+    "added": "2026-07-24T08:38:55Z",
+    "note": "Already established — The new claim is about the sensitivity of bifurcation points in the logistic map, which is the same mathematical content as established result 9.."
+  },
+  {
+    "id": "q_af57eef6cd",
+    "question": "Compute Feigenbaum's constant using both the bifurcation point ratio method AND the renormalization fixed point method to verify convergence to 4.6692...",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_56da713672",
+    "added": "2026-07-24T13:40:18Z"
+  },
+  {
+    "id": "q_937a6e0a1f",
+    "question": "Determine how many additional bifurcation points (r_11, r_12, etc.) are needed to achieve 6-digit precision for the Feigenbaum constant estimate.",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_56da713672",
+    "added": "2026-07-24T13:40:18Z"
+  },
+  {
+    "id": "q_547207f5aa",
+    "question": "Verify the dimensional consistency of the Feigenbaum constant in the context of the logistic map's parameter space.",
+    "significance": 3,
+    "tractability": 5,
+    "novelty": 1,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_56da713672",
+    "added": "2026-07-24T13:40:18Z"
   }
 ]
