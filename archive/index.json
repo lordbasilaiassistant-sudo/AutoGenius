@@ -115,5 +115,14 @@
     "question": "What is the exact analytical expression for the Lyapunov exponent at r=4?",
     "path": "established/art_80430756f1_lyapunov-exponent-for-logistic-map-at-r-4.md",
     "timestamp": "2026-07-24T02:10:14Z"
+  },
+  {
+    "id": "art_736f6b4446",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum Convergence Analysis",
+    "confidence": 0.95,
+    "question": "Implement a correct numerical algorithm to find bifurcation points where the derivative of the 2^n-th iterate equals -1, then verify the convergence rate to the Feigenbaum constant.",
+    "path": "disproven/art_736f6b4446_feigenbaum-convergence-analysis.md",
+    "timestamp": "2026-07-24T02:16:02Z"
   }
 ]

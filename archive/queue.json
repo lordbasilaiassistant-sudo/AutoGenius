@@ -346,8 +346,8 @@
     "significance": 5,
     "tractability": 4,
     "novelty": 2,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_cd0c9135ff",
     "added": "2026-07-23T19:20:59Z"
   },
@@ -383,5 +383,27 @@
     "status": "open",
     "parent": "q_195c4016ef",
     "added": "2026-07-24T02:10:14Z"
+  },
+  {
+    "id": "q_3a8803f349",
+    "question": "How can we properly define and compute the bifurcation points r_n for the logistic map while maintaining dimensional consistency?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_769a64535b",
+    "added": "2026-07-24T02:16:02Z"
+  },
+  {
+    "id": "q_25798d1530",
+    "question": "What is the correct mathematical formulation for the convergence rate to the Feigenbaum constant that respects dimensional analysis?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_769a64535b",
+    "added": "2026-07-24T02:16:02Z"
   }
 ]
