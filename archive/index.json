@@ -124,5 +124,14 @@
     "question": "Implement a correct numerical algorithm to find bifurcation points where the derivative of the 2^n-th iterate equals -1, then verify the convergence rate to the Feigenbaum constant.",
     "path": "disproven/art_736f6b4446_feigenbaum-convergence-analysis.md",
     "timestamp": "2026-07-24T02:16:02Z"
+  },
+  {
+    "id": "art_a1b74b24f3",
+    "verdict": "DISPROVEN",
+    "title": "Relativistic Effective Potential for Inverse-Square Law",
+    "confidence": 0.9,
+    "question": "What happens to the relationship when considering relativistic effects or other perturbations to the inverse-square law?",
+    "path": "disproven/art_a1b74b24f3_relativistic-effective-potential-for-inverse-square-law.md",
+    "timestamp": "2026-07-24T02:22:04Z"
   }
 ]

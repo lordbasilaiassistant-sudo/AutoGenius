@@ -192,8 +192,8 @@
     "significance": 3,
     "tractability": 4,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_b36b3759dd",
     "added": "2026-07-23T06:35:12Z"
   },
@@ -405,5 +405,27 @@
     "status": "open",
     "parent": "q_769a64535b",
     "added": "2026-07-24T02:16:02Z"
+  },
+  {
+    "id": "q_7f4176ecca",
+    "question": "What is the correct form of the relativistic effective potential for an inverse-square law force when derived from the Schwarzschild metric?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ff59fa8e74",
+    "added": "2026-07-24T02:22:04Z"
+  },
+  {
+    "id": "q_43cac8e977",
+    "question": "How does the relativistic correction term affect orbital precession compared to the classical prediction?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ff59fa8e74",
+    "added": "2026-07-24T02:22:04Z"
   }
 ]
