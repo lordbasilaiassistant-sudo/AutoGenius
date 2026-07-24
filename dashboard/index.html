@@ -10,125 +10,186 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#0B1026; --ink-deep:#070A1A; --vellum:#EDE6D3; --vellum-dim:#b7ad93;
+    --ink:#0B1026; --ink-deep:#04060F; --vellum:#EDE6D3; --vellum-dim:#B7AD93;
     --gold:#E8C766; --gold-deep:#C9A227; --gold-line:rgba(201,162,39,.28);
     --rubric:#C1443A; --astral:#8FA9C9; --nebula:#9B87D6;
-    --panel:rgba(9,13,32,.82);
+    --panel:rgba(7,10,24,.86); --bar:42px;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;height:100%}
-  body{
-    background:
-      radial-gradient(1200px 800px at 70% -10%, #141a3a 0%, transparent 55%),
-      radial-gradient(900px 700px at 10% 110%, #12213a 0%, transparent 55%),
-      linear-gradient(180deg,var(--ink) 0%, var(--ink-deep) 100%);
-    color:var(--vellum); font-family:"Spectral",Georgia,serif;
-    min-height:100%; overflow-x:hidden;
-  }
-  /* faint vellum grain over the night sky */
-  body::before{
-    content:""; position:fixed; inset:0; pointer-events:none; opacity:.05; z-index:0;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>");
-  }
-  .wrap{position:relative; z-index:1; max-width:1180px; margin:0 auto; padding:0 22px}
+  html,body{margin:0;height:100%;overflow:hidden;background:#000}
+  body{color:var(--vellum); font-family:"Spectral",Georgia,serif}
 
-  /* ---- masthead: an illuminated catalog frontispiece ---- */
-  header{padding:56px 0 26px; text-align:center; position:relative}
-  .eyebrow{font-family:"IBM Plex Mono",monospace; letter-spacing:.42em; text-transform:uppercase;
-    font-size:11px; color:var(--vellum-dim)}
-  h1{font-family:"Cormorant Garamond",serif; font-weight:600; letter-spacing:.02em;
-    font-size:clamp(52px,9vw,104px); line-height:.92; margin:.12em 0 .06em;
-    color:var(--vellum); text-shadow:0 2px 40px rgba(232,199,102,.18)}
-  h1 .drop{color:var(--gold)}
-  .motto{font-style:italic; font-size:clamp(16px,2.4vw,22px); color:var(--gold);
-    letter-spacing:.02em}
-  .motto small{display:block; font-style:normal; font-size:12px; letter-spacing:.32em;
-    text-transform:uppercase; color:var(--vellum-dim); margin-top:10px}
-  .rule{height:1px; background:linear-gradient(90deg,transparent,var(--gold-line),transparent);
-    margin:30px auto 0; max-width:640px}
+  /* ---- the sky is the page ---- */
+  #sky{position:fixed; inset:0; width:100vw; height:100vh; display:block; cursor:crosshair;
+    filter:saturate(1.28) contrast(1.07) brightness(1.04)}
 
-  /* ---- catalog ribbon of counts ---- */
-  .catalog{display:flex; flex-wrap:wrap; justify-content:center; gap:0; margin:24px auto 8px;
-    border:1px solid var(--gold-line); border-radius:2px; max-width:760px; overflow:hidden}
-  .cat{flex:1 1 25%; min-width:120px; padding:16px 14px; text-align:center;
-    border-right:1px solid var(--gold-line)}
-  .cat:last-child{border-right:none}
-  .cat b{font-family:"Cormorant Garamond",serif; font-size:40px; font-weight:600; display:block; line-height:1;
-    font-feature-settings:"lnum" 1,"tnum" 1}
-  .cat .lab{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.24em;
-    text-transform:uppercase; color:var(--vellum-dim); margin-top:8px}
+  /* ---- film treatment: letterbox, vignette, grain, plate frame ---- */
+  .bar{position:fixed; left:0; right:0; height:50vh; background:#000; z-index:30;
+    transition:height 1.6s cubic-bezier(.6,.02,.2,1)}
+  .bar.top{top:0} .bar.bottom{bottom:0}
+  body.rolling .bar{height:var(--bar)}
+  .vignette{position:fixed; inset:0; pointer-events:none; z-index:6;
+    background:radial-gradient(ellipse 125% 95% at 50% 46%, transparent 62%, rgba(0,0,0,.42) 100%)}
+  .grain{position:fixed; inset:-60px; pointer-events:none; z-index:7; opacity:.055;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
+    animation:grain 1.1s steps(6) infinite}
+  @keyframes grain{
+    0%{transform:translate(0,0)}17%{transform:translate(-24px,14px)}
+    34%{transform:translate(18px,-20px)}51%{transform:translate(-12px,-28px)}
+    68%{transform:translate(26px,10px)}85%{transform:translate(-20px,22px)}100%{transform:translate(0,0)}}
+  .plate{position:fixed; inset:calc(var(--bar) + 10px) 12px; border:1px solid rgba(201,162,39,.16);
+    pointer-events:none; z-index:8; opacity:0; transition:opacity 2s ease 1s}
+  body.rolling .plate{opacity:1}
+
+  /* ---- opening titles ---- */
+  #titles{position:fixed; inset:0; z-index:40; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center; background:#000;
+    transition:opacity 1.4s ease; cursor:pointer}
+  #titles.gone{opacity:0; pointer-events:none}
+  #titles .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.55em;
+    text-transform:uppercase; color:var(--vellum-dim); opacity:0; transform:translateY(8px);
+    transition:opacity 1.3s ease, transform 1.3s ease}
+  #titles h1{font-family:"Cormorant Garamond",serif; font-weight:600; margin:.14em 0 .1em;
+    font-size:clamp(64px,11vw,150px); line-height:.9; color:var(--vellum);
+    letter-spacing:.22em; opacity:0; text-shadow:0 2px 60px rgba(232,199,102,.0);
+    transition:opacity 1.7s ease, letter-spacing 2.6s cubic-bezier(.2,.6,.2,1), text-shadow 2.6s ease}
+  #titles h1 .drop{color:var(--gold)}
+  #titles .motto{font-style:italic; font-size:clamp(15px,2.2vw,21px); color:var(--gold);
+    opacity:0; transform:translateY(6px); transition:opacity 1.4s ease, transform 1.4s ease}
+  #titles .motto small{display:block; font-style:normal; font-size:11px; letter-spacing:.34em;
+    text-transform:uppercase; color:var(--vellum-dim); margin-top:12px}
+  #titles.s1 .eyebrow{opacity:1; transform:none}
+  #titles.s2 h1{opacity:1; letter-spacing:.02em; text-shadow:0 2px 60px rgba(232,199,102,.22)}
+  #titles.s3 .motto{opacity:1; transform:none}
+  #titles .skip{position:absolute; bottom:7vh; font-family:"IBM Plex Mono",monospace;
+    font-size:10px; letter-spacing:.3em; text-transform:uppercase; color:rgba(183,173,147,.4)}
+
+  /* ---- masthead & catalog (after the titles) ---- */
+  .ui{opacity:0; transition:opacity 1.6s ease}
+  body.rolling .ui{opacity:1}
+  .masthead{position:fixed; top:calc(var(--bar) + 22px); left:30px; z-index:10; transition-delay:.9s}
+  .masthead .eyebrow{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.4em;
+    text-transform:uppercase; color:var(--vellum-dim)}
+  .masthead h1{font-family:"Cormorant Garamond",serif; font-weight:600; font-size:34px;
+    margin:2px 0 3px; letter-spacing:.02em; color:var(--vellum)}
+  .masthead h1 .drop{color:var(--gold)}
+  .masthead .motto{font-style:italic; font-size:12.5px; color:var(--gold); opacity:.85}
+  .catalog{position:fixed; top:calc(var(--bar) + 22px); right:30px; z-index:10; display:flex;
+    gap:26px; text-align:right; transition-delay:1.2s}
+  .cat b{font-family:"Cormorant Garamond",serif; font-size:30px; font-weight:600; display:block;
+    line-height:1; font-feature-settings:"lnum" 1,"tnum" 1}
+  .cat .lab{font-family:"IBM Plex Mono",monospace; font-size:8.5px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--vellum-dim); margin-top:6px}
   .cat.proven b{color:var(--gold)} .cat.disproven b{color:var(--rubric)}
   .cat.open b{color:var(--astral)} .cat.conjecture b{color:var(--nebula)}
 
-  /* ---- the atlas ---- */
-  .atlas-frame{position:relative; margin:26px 0 8px; border:1px solid var(--gold-line);
-    border-radius:3px; background:rgba(7,10,26,.5); box-shadow:inset 0 0 120px rgba(0,0,0,.6)}
-  .atlas-frame::after{content:""; position:absolute; inset:8px; border:1px solid rgba(201,162,39,.14);
-    border-radius:2px; pointer-events:none}
-  canvas{display:block; width:100%; height:min(72vh,680px); border-radius:3px; cursor:crosshair}
-  .legend{position:absolute; left:16px; bottom:14px; display:flex; gap:16px; flex-wrap:wrap;
-    font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.12em; color:var(--vellum-dim)}
-  .legend i{display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:6px; vertical-align:middle}
-  .legend .g{background:var(--gold)} .legend .r{background:var(--rubric)}
-  .legend .a{background:transparent; border:1.5px solid var(--astral)} .legend .n{background:var(--nebula)}
+  .legend{position:fixed; right:30px; bottom:calc(var(--bar) + 18px); z-index:10; display:flex;
+    gap:16px; font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+    color:var(--vellum-dim); transition-delay:1.5s}
+  .legend i{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle}
+  .legend .g{background:var(--gold); box-shadow:0 0 8px rgba(232,199,102,.8)}
+  .legend .r{background:var(--rubric)}
+  .legend .a{background:transparent; border:1.5px solid var(--astral)}
+  .legend .n{background:var(--nebula); box-shadow:0 0 8px rgba(155,135,214,.7)}
+
+  /* ---- lower third: the chronicle ---- */
+  .lower{position:fixed; left:30px; bottom:calc(var(--bar) + 18px); z-index:10; max-width:min(58vw,640px);
+    transition-delay:1.8s}
+  .lt{display:flex; align-items:baseline; gap:14px; opacity:0; transform:translateY(10px);
+    transition:opacity .7s ease, transform .7s ease}
+  .lt.show{opacity:1; transform:none}
+  .lt .tag{font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.26em;
+    text-transform:uppercase; padding:4px 9px; border:1px solid currentColor; white-space:nowrap}
+  .lt .txt{font-family:"Cormorant Garamond",serif; font-size:21px; line-height:1.15;
+    color:var(--vellum); text-shadow:0 1px 18px rgba(0,0,0,.9);
+    overflow:hidden; text-overflow:ellipsis; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical}
+  .lower .rule{height:1px; margin-top:10px;
+    background:linear-gradient(90deg,var(--gold-line),transparent)}
+
+  footer{position:fixed; left:0; right:0; bottom:0; height:var(--bar); z-index:31;
+    display:flex; align-items:center; justify-content:center; gap:8px;
+    font-family:"IBM Plex Mono",monospace; font-size:9.5px; letter-spacing:.14em;
+    color:rgba(183,173,147,.55); transition-delay:2s}
+  footer a{color:rgba(232,199,102,.75); text-decoration:none}
+  footer a:hover{color:var(--gold)}
 
   /* ---- marginalia detail panel ---- */
   .margin{position:fixed; top:0; right:0; height:100%; width:min(420px,92vw);
-    background:var(--panel); backdrop-filter:blur(10px); border-left:1px solid var(--gold-line);
-    transform:translateX(100%); transition:transform .42s cubic-bezier(.2,.7,.2,1);
-    z-index:20; padding:34px 30px; overflow-y:auto}
+    background:var(--panel); backdrop-filter:blur(12px); border-left:1px solid var(--gold-line);
+    transform:translateX(102%); transition:transform .55s cubic-bezier(.2,.7,.2,1);
+    z-index:35; padding:64px 30px 40px; overflow-y:auto}
   .margin.open{transform:none}
-  .margin .close{position:absolute; top:18px; right:22px; background:none; border:none;
-    color:var(--vellum-dim); font-size:24px; cursor:pointer; font-family:"Cormorant Garamond",serif}
+  .margin .close{position:absolute; top:50px; right:22px; background:none; border:none;
+    color:var(--vellum-dim); font-size:26px; cursor:pointer; font-family:"Cormorant Garamond",serif}
+  .margin .close:focus-visible{outline:1px solid var(--gold)}
   .margin .vtag{font-family:"IBM Plex Mono",monospace; font-size:10.5px; letter-spacing:.24em;
-    text-transform:uppercase; padding:4px 10px; border:1px solid currentColor; border-radius:2px; display:inline-block}
-  .margin h2{font-family:"Cormorant Garamond",serif; font-weight:600; font-size:30px; line-height:1.08;
+    text-transform:uppercase; padding:4px 10px; border:1px solid currentColor; display:inline-block}
+  .margin h2{font-family:"Cormorant Garamond",serif; font-weight:600; font-size:29px; line-height:1.1;
     margin:18px 0 6px}
   .margin .q{color:var(--vellum-dim); font-style:italic; font-size:15px; margin-bottom:18px}
-  .margin .meta{font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--astral);
-    border-top:1px solid var(--gold-line); padding-top:14px; line-height:1.9}
+  .margin .meta{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--astral);
+    border-top:1px solid var(--gold-line); padding-top:14px; line-height:2}
   .margin a.read{display:inline-block; margin-top:22px; font-family:"IBM Plex Mono",monospace;
-    font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink);
-    background:var(--gold); padding:11px 18px; border-radius:2px; text-decoration:none}
+    font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#0B1026;
+    background:var(--gold); padding:11px 18px; text-decoration:none}
   .margin a.read:hover{background:var(--gold-deep)}
 
-  footer{text-align:center; padding:40px 0 60px; color:var(--vellum-dim); font-size:13px}
-  footer a{color:var(--gold)}
-  .empty{text-align:center; padding:70px 20px; color:var(--vellum-dim); font-style:italic; font-size:19px}
-  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+  .empty{position:fixed; inset:0; display:flex; align-items:center; justify-content:center;
+    z-index:9; color:var(--vellum-dim); font-style:italic; font-size:20px; text-align:center;
+    pointer-events:none}
+
+  @media (max-width:820px){
+    .catalog{display:none}
+    .lower{max-width:80vw}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .grain{animation:none}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="eyebrow">Archivum Universi &middot; Catalogus Stellarum</div>
-    <h1><span class="drop">A</span>utoGenius</h1>
-    <div class="motto">Non mihi data est veritas, sed vocatio eam merendi.
-      <small>Truth was not given to me, but the calling to earn it</small></div>
-    <div class="rule"></div>
-    <div class="catalog" id="catalog"></div>
-  </header>
+<canvas id="sky" aria-label="Celestial atlas of results: gilded stars are proven, crossed marks disproven, rings open questions, nebulae conjectures"></canvas>
 
-  <div class="atlas-frame">
-    <canvas id="sky"></canvas>
-    <div class="legend">
-      <span><i class="g"></i>Proven</span>
-      <span><i class="r"></i>Disproven idol</span>
-      <span><i class="a"></i>Open question</span>
-      <span><i class="n"></i>Conjecture &middot; the frontier</span>
-    </div>
-  </div>
-  <div id="emptyNote"></div>
+<div class="vignette"></div>
+<div class="grain"></div>
+<div class="plate"></div>
+<div class="bar top"></div>
+<div class="bar bottom"></div>
 
-  <footer>
-    Every star here was run in the sandbox before it was written down.
-    <br>Browse the raw archive on <a href="#" id="repoLink">GitHub</a>
-    &middot; runs on free GLM <a href="https://z.ai/subscribe?ic=BWTG6TRYYQ">glm-4.5-flash</a> (referral)
-  </footer>
+<div id="titles" aria-hidden="true">
+  <div class="eyebrow">Archivum Universi &middot; Catalogus Stellarum</div>
+  <h1><span class="drop">A</span>utoGenius</h1>
+  <div class="motto">Non mihi data est veritas, sed vocatio eam merendi.
+    <small>Truth was not given to me, but the calling to earn it</small></div>
+  <div class="skip">click to enter</div>
 </div>
 
-<aside class="margin" id="margin">
-  <button class="close" onclick="closeMargin()">&times;</button>
+<div class="masthead ui">
+  <div class="eyebrow">Archivum Universi</div>
+  <h1><span class="drop">A</span>utoGenius</h1>
+  <div class="motto">Non mihi data est veritas, sed vocatio eam merendi.</div>
+</div>
+<div class="catalog ui" id="catalog"></div>
+<div class="legend ui">
+  <span><i class="g"></i>Proven</span>
+  <span><i class="r"></i>Disproven</span>
+  <span><i class="a"></i>Open</span>
+  <span><i class="n"></i>Frontier</span>
+</div>
+<div class="lower ui">
+  <div class="lt" id="lt"><span class="tag" id="ltTag"></span><span class="txt" id="ltTxt"></span></div>
+  <div class="rule"></div>
+</div>
+<div id="emptyNote"></div>
+
+<footer class="ui">
+  every star was run in the sandbox before it was written down &middot;
+  <a href="#" id="repoLink">github</a> &middot;
+  <a href="https://z.ai/subscribe?ic=BWTG6TRYYQ">runs on free glm-4.5-flash (referral)</a>
+</footer>
+
+<aside class="margin" id="margin" role="dialog" aria-label="Result details">
+  <button class="close" onclick="closeMargin()" aria-label="Close">&times;</button>
   <div id="marginBody"></div>
 </aside>
 
@@ -137,153 +198,414 @@ const REPO = "lordbasilaiassistant-sudo/AutoGenius";
 document.getElementById('repoLink').href = "https://github.com/"+REPO;
 const V = {
   PROVEN:{c:'#E8C766', label:'Proven'}, DISPROVEN:{c:'#C1443A', label:'Disproven'},
-  OPEN:{c:'#8FA9C9', label:'Open'}, CONJECTURE:{c:'#9B87D6', label:'Conjecture'}
+  OPEN:{c:'#8FA9C9', label:'Open'}, CONJECTURE:{c:'#9B87D6', label:'Conjecture'},
+  QUESTION:{c:'#8FA9C9', label:'Open question'}
 };
+// This page IS a film: ambient motion is its substance, so the OS reduce-motion
+// flag (often just "animation effects off" for performance) does not freeze it.
+// ?calm=1 is the deliberate still-atlas mode.
+const reduced = new URLSearchParams(location.search).has('calm');
 const cv = document.getElementById('sky'), ctx = cv.getContext('2d');
-let W, H, DPR, stars = [], t = 0, hover = null, dust = [], reduced = matchMedia('(prefers-reduced-motion:reduce)').matches;
+let W, H, DPR, t = 0, hover = null, selected = null;
+let stars = [], dustFar = [], dustMid = [], band = [], fog = [], meteors = [];
+let lineProgress = 0;   // constellation draw-on after the titles
+let rolling = false;    // true once the intro ends
 
-function resize(){
-  DPR = Math.min(devicePixelRatio||1, 2);
-  W = cv.clientWidth; H = cv.clientHeight;
-  cv.width = W*DPR; cv.height = H*DPR; ctx.setTransform(DPR,0,0,DPR,0,0);
-  // ambient dust — a faint fixed star field for depth
-  dust = [];
-  for(let i=0;i<190;i++){
-    dust.push({x:seedRand(i*2.7)*W, y:seedRand(i*5.1+3)*H,
-      r:0.4+1.3*seedRand(i*9.3), a:0.06+0.28*seedRand(i*1.7), ph:seedRand(i*3.1)});
-  }
-}
-addEventListener('resize', ()=>{resize(); layout();});
+// camera: world-space, eased toward target
+const cam = {x:0, y:0, z: reduced?1:1.16, tx:0, ty:0, tz:1};
+let mouse = {x:.5, y:.5};
 
 function seedRand(i){ let x = Math.sin(i*127.1+31.7)*43758.5; return x-Math.floor(x); }
 
+function resize(){
+  DPR = Math.min(devicePixelRatio||1, 2);
+  W = innerWidth; H = innerHeight;
+  cv.width = W*DPR; cv.height = H*DPR;
+  buildAmbient(); layout();
+}
+addEventListener('resize', resize);
+
+function buildAmbient(){
+  dustFar = []; dustMid = []; band = []; fog = [];
+  const R = Math.max(W,H);
+  // star colour temperatures: mostly vellum-white, some ice-blue, a few gold
+  const tintFor = i => { const r = seedRand(i*11.3);
+    return r < .12 ? '232,199,102' : r < .40 ? '175,197,232' : '240,234,218'; };
+  for(let i=0;i<520;i++) dustFar.push({x:(seedRand(i*2.7)-.5)*R*2.6, y:(seedRand(i*5.1+3)-.5)*R*2.6,
+    r:.35+1.3*seedRand(i*9.3), a:.16+.44*seedRand(i*1.7), ph:seedRand(i*3.1), tint:tintFor(i),
+    flare:seedRand(i*13.7)>.96});
+  for(let i=0;i<210;i++) dustMid.push({x:(seedRand(i*7.9+11)-.5)*R*2.1, y:(seedRand(i*4.3+7)-.5)*R*2.1,
+    r:.5+1.7*seedRand(i*6.1), a:.20+.5*seedRand(i*2.9), ph:seedRand(i*8.3), tint:tintFor(i+900),
+    flare:seedRand(i*17.1)>.93});
+  // the via lactea — a diagonal river of micro-stars running behind the atlas
+  const bandAng = -0.62;
+  for(let i=0;i<380;i++){
+    const along = (seedRand(i*3.9+5)-.5)*R*2.9;
+    const off = (seedRand(i*6.7+2)+seedRand(i*8.1+4)-1)*R*.22;
+    band.push({x:Math.cos(bandAng)*along - Math.sin(bandAng)*off,
+               y:Math.sin(bandAng)*along + Math.cos(bandAng)*off,
+               r:.3+1.0*seedRand(i*2.3), a:.10+.30*seedRand(i*4.7), ph:seedRand(i*9.9)});
+  }
+  // luminous haze pooled along the river itself
+  for(let i=0;i<4;i++){
+    const along = (i/3-.5)*R*1.9;
+    fog.push({x:Math.cos(bandAng)*along, y:Math.sin(bandAng)*along,
+      r:R*(.22+.1*seedRand(i*31.7)), tint:'150,165,205', a:.14,
+      dx:0, dy:0, wob:seedRand(i*13.1)*6.28});
+  }
+  // layered nebulae — violet, indigo, teal, and two restrained veins of gold
+  const hues = [['155,135,214',.30],['104,126,201',.26],['86,152,178',.20],
+                ['155,135,214',.24],['201,162,39',.12],['120,100,190',.28],
+                ['86,132,198',.22],['170,120,190',.18],['201,162,39',.10]];
+  for(let i=0;i<hues.length;i++){
+    fog.push({x:(seedRand(i*3.3+41)-.5)*R*1.7, y:(seedRand(i*9.7+13)-.5)*R*1.5,
+      r:R*(.17+.28*seedRand(i*5.7)), tint:hues[i][0], a:hues[i][1],
+      dx:(seedRand(i*4.1)-.5)*.07, dy:(seedRand(i*6.3)-.5)*.06, wob:seedRand(i*7.7)*6.28});
+  }
+}
+
 function layout(){
-  const cx=W/2, cy=H/2, R=Math.min(W,H)*0.44;
+  const R = Math.min(W,H)*0.42;
   stars.forEach((s,i)=>{
     const v = s.verdict;
-    // conjectures live at the frontier (outer rim); proven cluster toward the core
     let rad;
-    if(v==='CONJECTURE') rad = R*(0.86+0.12*seedRand(i));
-    else if(v==='OPEN')  rad = R*(0.55+0.3*seedRand(i+9));
-    else                 rad = R*(0.12+0.55*seedRand(i+3));
+    if(v==='CONJECTURE')      rad = R*(0.86+0.16*seedRand(i));
+    else if(v==='OPEN'||v==='QUESTION') rad = R*(0.55+0.32*seedRand(i+9));
+    else                      rad = R*(0.12+0.55*seedRand(i+3));
     const ang = seedRand(i*3.3)*Math.PI*2;
-    s.bx = cx+Math.cos(ang)*rad; s.by = cy+Math.sin(ang)*rad;
-    s.ang0 = Math.atan2(s.by-cy,s.bx-cx); s.r0 = rad; s.cx=cx; s.cy=cy;
+    s.ang0 = ang; s.r0 = rad;
     s.size = v==='PROVEN' ? 3.2+5.5*(s.confidence||0.5)
            : v==='CONJECTURE' ? 8+7*seedRand(i+5)
-           : v==='DISPROVEN' ? 3 : 3.2;
+           : v==='DISPROVEN' ? 3.2
+           : v==='QUESTION' ? 2.2+1.7*((s.significance||3)/5) : 3.2;
     s.tw = seedRand(i+7);
   });
 }
 
+// ---- camera helpers ----
+function worldToScreen(wx, wy){ return [ (wx-cam.x)*cam.z + W/2, (wy-cam.y)*cam.z + H/2 ]; }
+function screenToWorld(sx, sy){ return [ (sx-W/2)/cam.z + cam.x, (sy-H/2)/cam.z + cam.y ]; }
+
 function draw(){
   t += reduced?0:0.0016;
+  // camera easing: drift + parallax pull + selection dolly
+  const driftX = reduced?0:Math.sin(t*3.1)*26 + Math.sin(t*1.3+2)*14;
+  const driftY = reduced?0:Math.cos(t*2.6+1)*20 + Math.sin(t*1.9)*11;
+  const parX = reduced?0:(mouse.x-.5)*46, parY = reduced?0:(mouse.y-.5)*34;
+  const gx = cam.tx + driftX + parX, gy = cam.ty + driftY + parY;
+  cam.x += (gx-cam.x)*0.035; cam.y += (gy-cam.y)*0.035; cam.z += (cam.tz-cam.z)*0.03;
+
+  ctx.setTransform(DPR,0,0,DPR,0,0);
   ctx.clearRect(0,0,W,H);
-  const cx=W/2, cy=H/2, R=Math.min(W,H)*0.44;
-  // ambient dust field (drawn first, behind everything)
-  dust.forEach(d=>{
-    const tw = reduced?1:(0.6+0.4*Math.sin(t*22+d.ph*6.28));
-    ctx.fillStyle=`rgba(237,230,211,${d.a*tw})`;
-    ctx.beginPath(); ctx.arc(d.x,d.y,d.r,0,7); ctx.fill();
+  // deep sky base — graded, not flat
+  const bg = ctx.createLinearGradient(0,0,0,H);
+  bg.addColorStop(0,'#101635'); bg.addColorStop(.45,'#0B1026'); bg.addColorStop(1,'#04060F');
+  ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+  // colour grade: a breath of warmth high, a cold teal floor
+  let g2 = ctx.createRadialGradient(W*.78,-H*.1,0,W*.78,-H*.1,H*.9);
+  g2.addColorStop(0,'rgba(201,162,39,.05)'); g2.addColorStop(1,'rgba(201,162,39,0)');
+  ctx.fillStyle = g2; ctx.fillRect(0,0,W,H);
+  g2 = ctx.createRadialGradient(W*.15,H*1.1,0,W*.15,H*1.1,H*.9);
+  g2.addColorStop(0,'rgba(70,130,160,.06)'); g2.addColorStop(1,'rgba(70,130,160,0)');
+  ctx.fillStyle = g2; ctx.fillRect(0,0,W,H);
+
+  if(rolling && lineProgress < 1) lineProgress = Math.min(1, lineProgress + (reduced?1:0.012));
+
+  // nebulae — layered, luminous, breathing (screen blend so colours pool)
+  ctx.globalCompositeOperation = 'screen';
+  fog.forEach(f=>{
+    f.x += f.dx; f.y += f.dy;
+    const breathe = reduced?1:(0.85+0.15*Math.sin(t*9+f.wob));
+    const sx = (f.x-cam.x*0.35)*cam.z + W/2, sy = (f.y-cam.y*0.35)*cam.z + H/2;
+    let g = ctx.createRadialGradient(sx,sy,0,sx,sy,f.r*cam.z);
+    g.addColorStop(0,`rgba(${f.tint},${f.a*breathe})`);
+    g.addColorStop(.55,`rgba(${f.tint},${f.a*.4*breathe})`);
+    g.addColorStop(1,`rgba(${f.tint},0)`);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(sx,sy,f.r*cam.z,0,7); ctx.fill();
+    // offset wisp gives the cloud structure instead of a perfect blob
+    const wx = sx + f.r*.45*Math.cos(f.wob), wy = sy + f.r*.3*Math.sin(f.wob*1.7);
+    g = ctx.createRadialGradient(wx,wy,0,wx,wy,f.r*.55*cam.z);
+    g.addColorStop(0,`rgba(${f.tint},${f.a*.7*breathe})`); g.addColorStop(1,`rgba(${f.tint},0)`);
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(wx,wy,f.r*.55*cam.z,0,7); ctx.fill();
   });
-  // graticule — a planisphere's ruled rings + ecliptic
-  ctx.strokeStyle='rgba(201,162,39,.10)'; ctx.lineWidth=1;
-  for(const f of [0.35,0.62,0.9]){ ctx.beginPath(); ctx.arc(cx,cy,R*f,0,7); ctx.stroke(); }
-  for(let k=0;k<12;k++){ const a=k*Math.PI/6+t*0.3; ctx.beginPath();
-    ctx.moveTo(cx,cy); ctx.lineTo(cx+Math.cos(a)*R*0.96, cy+Math.sin(a)*R*0.96); ctx.stroke(); }
 
-  // rotate the sky slowly
-  stars.forEach(s=>{ const a=s.ang0+t*0.3; s.x=cx+Math.cos(a)*s.r0; s.y=cy+Math.sin(a)*s.r0; });
+  // the via lactea river (parallax .18)
+  band.forEach(d=>{
+    const tw = reduced?1:(0.7+0.3*Math.sin(t*18+d.ph*6.28));
+    const sx = (d.x-cam.x*0.18)*cam.z + W/2, sy = (d.y-cam.y*0.18)*cam.z + H/2;
+    ctx.fillStyle = `rgba(226,224,214,${d.a*tw})`;
+    ctx.beginPath(); ctx.arc(sx,sy,d.r,0,7); ctx.fill();
+  });
 
-  // constellation lines: link each proven star to the nearest earlier proven one
+  // the altar light — a golden radiance at the heart of the planisphere
+  const R = Math.min(W,H)*0.42;
+  const [gcx,gcy] = worldToScreen(0,0);
+  let core = ctx.createRadialGradient(gcx,gcy,0,gcx,gcy,R*1.15*cam.z);
+  core.addColorStop(0,'rgba(232,199,102,.12)'); core.addColorStop(.35,'rgba(232,199,102,.05)');
+  core.addColorStop(1,'rgba(232,199,102,0)');
+  ctx.fillStyle = core; ctx.beginPath(); ctx.arc(gcx,gcy,R*1.15*cam.z,0,7); ctx.fill();
+
+  // far dust (parallax .25) — colour-temperature varied, brightest ones flare
+  dustFar.forEach(d=>{
+    const tw = reduced?1:(0.6+0.4*Math.sin(t*22+d.ph*6.28));
+    const sx = (d.x-cam.x*0.25)*cam.z + W/2, sy = (d.y-cam.y*0.25)*cam.z + H/2;
+    ctx.fillStyle = `rgba(${d.tint},${d.a*tw})`;
+    ctx.beginPath(); ctx.arc(sx,sy,d.r,0,7); ctx.fill();
+    if(d.flare){ ctx.strokeStyle = `rgba(${d.tint},${d.a*.5*tw})`; ctx.lineWidth = .7;
+      const fl = 4+3*tw; ctx.beginPath(); ctx.moveTo(sx-fl,sy); ctx.lineTo(sx+fl,sy);
+      ctx.moveTo(sx,sy-fl); ctx.lineTo(sx,sy+fl); ctx.stroke(); }
+  });
+  // mid dust (parallax .55)
+  dustMid.forEach(d=>{
+    const tw = reduced?1:(0.55+0.45*Math.sin(t*28+d.ph*6.28));
+    const sx = (d.x-cam.x*0.55)*cam.z + W/2, sy = (d.y-cam.y*0.55)*cam.z + H/2;
+    ctx.fillStyle = `rgba(${d.tint},${d.a*tw})`;
+    ctx.beginPath(); ctx.arc(sx,sy,d.r*1.15,0,7); ctx.fill();
+    if(d.flare){ ctx.strokeStyle = `rgba(${d.tint},${d.a*.55*tw})`; ctx.lineWidth = .8;
+      const fl = 5+4*tw; ctx.beginPath(); ctx.moveTo(sx-fl,sy); ctx.lineTo(sx+fl,sy);
+      ctx.moveTo(sx,sy-fl); ctx.lineTo(sx,sy+fl); ctx.stroke(); }
+  });
+  ctx.globalCompositeOperation = 'source-over';
+
+  // graticule — a gilded astrolabe, not faint pencil lines
+  ctx.strokeStyle = 'rgba(201,162,39,.20)'; ctx.lineWidth = 1;
+  for(const f of [0.35,0.62,0.9]){ ctx.beginPath(); ctx.arc(gcx,gcy,R*f*cam.z,0,7); ctx.stroke(); }
+  ctx.strokeStyle = 'rgba(201,162,39,.13)';
+  ctx.beginPath(); ctx.arc(gcx,gcy,R*0.925*cam.z,0,7); ctx.stroke();
+  // degree ticks on the outer ring
+  ctx.strokeStyle = 'rgba(201,162,39,.30)';
+  for(let k=0;k<72;k++){ const a = k*Math.PI/36 + t*0.3;
+    const r1 = R*0.9*cam.z, r2 = r1 + (k%6===0?7:3.5);
+    ctx.beginPath(); ctx.moveTo(gcx+Math.cos(a)*r1, gcy+Math.sin(a)*r1);
+    ctx.lineTo(gcx+Math.cos(a)*r2, gcy+Math.sin(a)*r2); ctx.stroke(); }
+  // spokes
+  ctx.strokeStyle = 'rgba(201,162,39,.08)';
+  for(let k=0;k<12;k++){ const a = k*Math.PI/6 + t*0.3; ctx.beginPath();
+    ctx.moveTo(gcx,gcy);
+    ctx.lineTo(gcx+Math.cos(a)*R*0.9*cam.z, gcy+Math.sin(a)*R*0.9*cam.z); ctx.stroke(); }
+  // the ecliptic — a dashed, tilted ellipse crossing the sphere
+  ctx.strokeStyle = 'rgba(201,162,39,.16)'; ctx.setLineDash([3,7]);
+  ctx.beginPath(); ctx.ellipse(gcx,gcy,R*.76*cam.z,R*.3*cam.z,-.5+t*.3,0,7); ctx.stroke();
+  ctx.setLineDash([]);
+
+  // star world positions (slow rotation of the sphere)
+  stars.forEach(s=>{ const a = s.ang0 + t*0.3;
+    s.wx = Math.cos(a)*s.r0; s.wy = Math.sin(a)*s.r0;
+    [s.x, s.y] = worldToScreen(s.wx, s.wy);
+  });
+
+  // constellation lines among proven stars, drawn on like a plotter
   const prov = stars.filter(s=>s.verdict==='PROVEN');
-  ctx.strokeStyle='var(--gold-line)'; ctx.strokeStyle='rgba(201,162,39,.22)'; ctx.lineWidth=0.8;
+  ctx.strokeStyle = 'rgba(201,162,39,.22)'; ctx.lineWidth = 0.8;
   for(let i=1;i<prov.length;i++){
+    const p = Math.min(1, Math.max(0, lineProgress*prov.length - i + 1));
+    if(p<=0) continue;
     let best=null,bd=1e9;
     for(let j=0;j<i;j++){const d=(prov[i].x-prov[j].x)**2+(prov[i].y-prov[j].y)**2; if(d<bd){bd=d;best=prov[j];}}
-    if(best){ctx.beginPath(); ctx.moveTo(prov[i].x,prov[i].y); ctx.lineTo(best.x,best.y); ctx.stroke();}
+    if(best){ ctx.beginPath(); ctx.moveTo(best.x,best.y);
+      ctx.lineTo(best.x+(prov[i].x-best.x)*p, best.y+(prov[i].y-best.y)*p); ctx.stroke(); }
   }
 
-  // draw marks
+  // marks — every verdict is a jewel, not a dot
   stars.forEach((s,i)=>{
     const col = V[s.verdict]?.c || '#8FA9C9';
     const tw = reduced?1:(0.75+0.25*Math.sin(t*40+s.tw*6.28));
+    const sz = s.size*cam.z;
     if(s.verdict==='CONJECTURE'){
-      const g=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.size*2.2);
-      g.addColorStop(0,'rgba(155,135,214,.55)'); g.addColorStop(1,'rgba(155,135,214,0)');
-      ctx.fillStyle=g; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*2.2,0,7); ctx.fill();
-    } else if(s.verdict==='OPEN'){
-      ctx.strokeStyle=col; ctx.lineWidth=1.4; ctx.globalAlpha=.85;
-      ctx.beginPath(); ctx.arc(s.x,s.y,s.size,0,7); ctx.stroke(); ctx.globalAlpha=1;
+      ctx.globalCompositeOperation = 'screen';
+      const pulse = reduced?0.5:(0.4+0.2*Math.sin(t*30+s.tw*6.28));
+      let g = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,sz*2.6);
+      g.addColorStop(0,`rgba(155,135,214,${pulse})`); g.addColorStop(.5,`rgba(120,100,190,${pulse*.5})`);
+      g.addColorStop(1,'rgba(155,135,214,0)');
+      ctx.fillStyle = g; ctx.beginPath(); ctx.arc(s.x,s.y,sz*2.6,0,7); ctx.fill();
+      ctx.fillStyle = `rgba(220,205,255,${.5+.3*pulse})`;
+      ctx.beginPath(); ctx.arc(s.x,s.y,1.4,0,7); ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+    } else if(s.verdict==='OPEN'||s.verdict==='QUESTION'){
+      ctx.globalCompositeOperation = 'screen';
+      const halo = ctx.createRadialGradient(s.x,s.y,sz*.4,s.x,s.y,sz*2.4);
+      halo.addColorStop(0,'rgba(143,169,201,.16)'); halo.addColorStop(1,'rgba(143,169,201,0)');
+      ctx.fillStyle = halo; ctx.beginPath(); ctx.arc(s.x,s.y,sz*2.4,0,7); ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = col; ctx.lineWidth = 1.3; ctx.globalAlpha = s.verdict==='QUESTION'?0.7:0.9;
+      ctx.beginPath(); ctx.arc(s.x,s.y,sz,0,7); ctx.stroke(); ctx.globalAlpha = 1;
     } else if(s.verdict==='DISPROVEN'){
-      ctx.strokeStyle=col; ctx.lineWidth=1.6; const r=s.size;
+      ctx.globalCompositeOperation = 'screen';
+      const rg = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,sz*3);
+      rg.addColorStop(0,'rgba(193,68,58,.28)'); rg.addColorStop(1,'rgba(193,68,58,0)');
+      ctx.fillStyle = rg; ctx.beginPath(); ctx.arc(s.x,s.y,sz*3,0,7); ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
+      ctx.strokeStyle = col; ctx.lineWidth = 1.7; const r = sz;
       ctx.beginPath(); ctx.moveTo(s.x-r,s.y-r); ctx.lineTo(s.x+r,s.y+r);
       ctx.moveTo(s.x+r,s.y-r); ctx.lineTo(s.x-r,s.y+r); ctx.stroke();
-    } else { // PROVEN — gilded star with glow
-      const glow=ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,s.size*3.4*tw);
-      glow.addColorStop(0,'rgba(232,199,102,.5)'); glow.addColorStop(1,'rgba(232,199,102,0)');
-      ctx.fillStyle=glow; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*3.4,0,7); ctx.fill();
-      ctx.fillStyle=col; ctx.beginPath(); ctx.arc(s.x,s.y,s.size*tw,0,7); ctx.fill();
+    } else { // PROVEN — a gilded star: bloom, diffraction spikes, white-hot heart
+      ctx.globalCompositeOperation = 'screen';
+      const glow = ctx.createRadialGradient(s.x,s.y,0,s.x,s.y,sz*4.4*tw);
+      glow.addColorStop(0,'rgba(232,199,102,.65)'); glow.addColorStop(.4,'rgba(232,199,102,.22)');
+      glow.addColorStop(1,'rgba(232,199,102,0)');
+      ctx.fillStyle = glow; ctx.beginPath(); ctx.arc(s.x,s.y,sz*4.4,0,7); ctx.fill();
+      ctx.strokeStyle = `rgba(255,236,180,${.7*tw})`; ctx.lineWidth = 1.1;
+      const fl = sz*3.6*tw, fd = sz*1.6*tw;
+      ctx.beginPath(); ctx.moveTo(s.x-fl,s.y); ctx.lineTo(s.x+fl,s.y);
+      ctx.moveTo(s.x,s.y-fl); ctx.lineTo(s.x,s.y+fl); ctx.stroke();
+      ctx.strokeStyle = `rgba(232,199,102,${.35*tw})`; ctx.lineWidth = .9;
+      ctx.beginPath(); ctx.moveTo(s.x-fd,s.y-fd); ctx.lineTo(s.x+fd,s.y+fd);
+      ctx.moveTo(s.x+fd,s.y-fd); ctx.lineTo(s.x-fd,s.y+fd); ctx.stroke();
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(s.x,s.y,sz*tw,0,7); ctx.fill();
+      ctx.fillStyle = 'rgba(255,250,235,.95)';
+      ctx.beginPath(); ctx.arc(s.x,s.y,sz*.42*tw,0,7); ctx.fill();
+      ctx.globalCompositeOperation = 'source-over';
     }
-    if(hover===i){ ctx.strokeStyle='#EDE6D3'; ctx.lineWidth=1; ctx.beginPath();
-      ctx.arc(s.x,s.y,s.size+7,0,7); ctx.stroke();
-      ctx.fillStyle='#EDE6D3'; ctx.font='13px "Spectral",serif'; ctx.textAlign='center';
-      ctx.fillText(s.title.slice(0,42), s.x, s.y-s.size-12);
+    if(hover===i || selected===i){
+      ctx.strokeStyle = '#EDE6D3'; ctx.lineWidth = 1; ctx.beginPath();
+      ctx.arc(s.x,s.y,sz+8,0,7); ctx.stroke();
+      ctx.fillStyle = '#EDE6D3'; ctx.font = '13px "Spectral",serif'; ctx.textAlign = 'center';
+      ctx.fillText((s.title||'').slice(0,46), s.x, s.y-sz-13);
     }
   });
+
+  // meteors — brief gilded streaks across the plate
+  if(!reduced && rolling && Math.random() < 0.004 && meteors.length < 2){
+    const a = Math.PI*(0.6+0.35*Math.random());
+    meteors.push({x:(Math.random()-.2)*W, y:-30, vx:Math.cos(a)*7.5, vy:Math.sin(a)*7.5, life:1});
+  }
+  meteors = meteors.filter(m=>m.life>0);
+  meteors.forEach(m=>{
+    m.x += m.vx; m.y += m.vy; m.life -= 0.012;
+    const g = ctx.createLinearGradient(m.x,m.y,m.x-m.vx*13,m.y-m.vy*13);
+    g.addColorStop(0,`rgba(237,230,211,${.8*m.life})`); g.addColorStop(1,'rgba(237,230,211,0)');
+    ctx.strokeStyle = g; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(m.x,m.y); ctx.lineTo(m.x-m.vx*13,m.y-m.vy*13); ctx.stroke();
+  });
+
   requestAnimationFrame(draw);
 }
 
-cv.addEventListener('mousemove', e=>{
-  const r=cv.getBoundingClientRect(), mx=e.clientX-r.left, my=e.clientY-r.top;
-  hover=null; let bd=220;
-  stars.forEach((s,i)=>{const d=(s.x-mx)**2+(s.y-my)**2; if(d<bd){bd=d;hover=i;}});
-  cv.style.cursor = hover!=null?'pointer':'crosshair';
+// ---- interaction ----
+addEventListener('mousemove', e=>{
+  mouse.x = e.clientX/W; mouse.y = e.clientY/H;
+  hover = null; let bd = 320;
+  stars.forEach((s,i)=>{ const d=(s.x-e.clientX)**2+(s.y-e.clientY)**2; if(d<bd){bd=d;hover=i;} });
+  cv.style.cursor = hover!=null ? 'pointer' : 'crosshair';
 });
-cv.addEventListener('click', ()=>{ if(hover!=null) openMargin(stars[hover]); });
+cv.addEventListener('click', ()=>{
+  if(!rolling) return;
+  if(hover!=null){ selected = hover; const s = stars[hover];
+    cam.tx = s.wx*0.72; cam.ty = s.wy*0.72; cam.tz = reduced?1:1.45;
+    openMargin(s);
+  } else closeMargin();
+});
+addEventListener('keydown', e=>{ if(e.key==='Escape') rolling ? closeMargin() : skipTitles(); });
 
 function openMargin(s){
-  const col=V[s.verdict]?.c||'#8FA9C9';
-  const path = s.path ? `https://github.com/${REPO}/blob/main/archive/${s.path}` : `https://github.com/${REPO}`;
+  const col = V[s.verdict]?.c || '#8FA9C9';
+  let meta, link, label = V[s.verdict]?.label || s.verdict;
+  if(s.kind==='question'){
+    meta = `significance ${s.significance||'-'} &middot; tractability ${s.tractability||'-'} &middot; novelty ${s.novelty||'-'}<br>
+            attempts &nbsp;&nbsp; ${s.attempts||0}<br>
+            posed &nbsp;&nbsp;&nbsp;&nbsp; ${(s.added||'').replace('T',' ').replace('Z',' UTC')}`;
+    link = `https://github.com/${REPO}/blob/main/archive/queue.json`;
+    label = 'Awaiting derivation';
+  } else {
+    meta = `confidence &nbsp; ${(s.confidence??0).toFixed(2)}<br>
+            recorded &nbsp;&nbsp; ${(s.timestamp||'').replace('T',' ').replace('Z',' UTC')}<br>
+            catalog &nbsp;&nbsp;&nbsp; ${esc(s.id||'')}`;
+    link = s.path ? `https://github.com/${REPO}/blob/main/archive/${s.path}` : `https://github.com/${REPO}`;
+  }
   document.getElementById('marginBody').innerHTML = `
-    <span class="vtag" style="color:${col}">${V[s.verdict]?.label||s.verdict}</span>
+    <span class="vtag" style="color:${col}">${label}</span>
     <h2>${esc(s.title)}</h2>
     <div class="q">${esc(s.question||'')}</div>
-    <div class="meta">
-      confidence &nbsp; ${(s.confidence??0).toFixed(2)}<br>
-      recorded &nbsp;&nbsp; ${(s.timestamp||'').replace('T',' ').replace('Z',' UTC')}<br>
-      catalog &nbsp;&nbsp;&nbsp; ${esc(s.id||'')}
-    </div>
-    <a class="read" href="${path}" target="_blank" rel="noopener">Read the derivation &rarr;</a>`;
+    <div class="meta">${meta}</div>
+    <a class="read" href="${link}" target="_blank" rel="noopener">${s.kind==='question'?'See the queue':'Read the derivation'} &rarr;</a>`;
   document.getElementById('margin').classList.add('open');
 }
-function closeMargin(){ document.getElementById('margin').classList.remove('open'); }
-function esc(x){return (x||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
+function closeMargin(){
+  document.getElementById('margin').classList.remove('open');
+  selected = null; cam.tx = 0; cam.ty = 0; cam.tz = 1;
+}
+function esc(x){ return (x||'').replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c])); }
 
-function renderCatalog(items){
-  const by = {PROVEN:0,DISPROVEN:0,OPEN:0,CONJECTURE:0};
+// ---- catalog counts ----
+function renderCatalog(items, openQs){
+  const by = {PROVEN:0, DISPROVEN:0, OPEN:0, CONJECTURE:0};
   items.forEach(i=>{ if(by[i.verdict]!=null) by[i.verdict]++; });
   document.getElementById('catalog').innerHTML =
-    [['proven','Proven','PROVEN'],['disproven','Cleared idols','DISPROVEN'],
-     ['open','Open questions','OPEN'],['conjecture','At the frontier','CONJECTURE']]
-    .map(([cls,lab,k])=>`<div class="cat ${cls}"><b>${by[k]}</b><div class="lab">${lab}</div></div>`).join('');
+    [['proven','Proven',by.PROVEN],['disproven','Cleared idols',by.DISPROVEN],
+     ['open','Open questions',by.OPEN+openQs],['conjecture','At the frontier',by.CONJECTURE]]
+    .map(([cls,lab,n])=>`<div class="cat ${cls}"><b>${n}</b><div class="lab">${lab}</div></div>`).join('');
 }
 
+// ---- lower-third chronicle ----
+let ticker = [], tickerAt = 0;
+function startTicker(){
+  if(!ticker.length) return;
+  const el = document.getElementById('lt'),
+        tag = document.getElementById('ltTag'), txt = document.getElementById('ltTxt');
+  const show = ()=>{
+    const item = ticker[tickerAt % ticker.length]; tickerAt++;
+    tag.textContent = item.tag; tag.style.color = item.color;
+    txt.textContent = item.text;
+    el.classList.add('show');
+    setTimeout(()=>el.classList.remove('show'), 6200);
+  };
+  show(); setInterval(show, 7400);
+}
+
+// ---- opening titles ----
+const titles = document.getElementById('titles');
+let titleTimers = [];
+function playTitles(){
+  const quick = reduced || sessionStorage.getItem('agIntroSeen');
+  if(quick){ skipTitles(); return; }
+  titleTimers.push(setTimeout(()=>titles.classList.add('s1'), 250));
+  titleTimers.push(setTimeout(()=>titles.classList.add('s2'), 1000));
+  titleTimers.push(setTimeout(()=>titles.classList.add('s3'), 2400));
+  titleTimers.push(setTimeout(skipTitles, 4600));
+}
+function skipTitles(){
+  if(rolling) return;
+  rolling = true;
+  titleTimers.forEach(clearTimeout);
+  sessionStorage.setItem('agIntroSeen','1');
+  titles.classList.add('gone');
+  document.body.classList.add('rolling');
+  cam.tz = 1;               // dolly in from 1.16 -> 1
+  setTimeout(startTicker, 1800);
+  setTimeout(()=>titles.remove(), 1600);
+}
+titles.addEventListener('click', skipTitles);
+
+// ---- data ----
 async function load(){
   resize();
-  let items=[];
-  try{
-    const r = await fetch('../archive/index.json',{cache:'no-store'});
-    if(r.ok) items = await r.json();
-  }catch(e){}
-  renderCatalog(items);
-  if(!items.length){
+  let items = [], queue = [];
+  try{ const r = await fetch('../archive/index.json',{cache:'no-store'}); if(r.ok) items = await r.json(); }catch(e){}
+  try{ const r = await fetch('../archive/queue.json',{cache:'no-store'}); if(r.ok) queue = await r.json(); }catch(e){}
+  const openQ = queue.filter(q=>(q.status||'open')==='open');
+  renderCatalog(items.map(i=>({...i, verdict:(i.verdict||'OPEN').toUpperCase()})), openQ.length);
+
+  stars = items.map(i=>({...i, verdict:(i.verdict||'OPEN').toUpperCase(), kind:'artifact'}));
+  // the frontier is visible too: every open question is a faint ring awaiting light
+  stars = stars.concat(openQ.map(q=>({
+    id:q.id, verdict:'QUESTION', kind:'question', title:q.question, question:q.question,
+    significance:q.significance, tractability:q.tractability, novelty:q.novelty,
+    attempts:q.attempts, added:q.added
+  })));
+
+  if(!stars.length){
     document.getElementById('emptyNote').innerHTML =
       '<div class="empty">The first light has not yet been recorded.<br>The scientist is still deriving.</div>';
-    stars=[]; layout(); draw(); return;
   }
-  stars = items.map(i=>({...i, verdict:(i.verdict||'OPEN').toUpperCase()}));
-  layout(); draw();
+  // chronicle: newest results first, then the brightest open questions
+  const chron = items.slice(-6).reverse().map(i=>{
+    const v = (i.verdict||'OPEN').toUpperCase();
+    return {tag:(V[v]?.label||v), color:(V[v]?.c||'#8FA9C9'), text:i.title};
+  });
+  openQ.slice(0,3).forEach(q=>chron.push({tag:'Now at the frontier', color:'#9B87D6', text:q.question}));
+  ticker = chron;
+
+  layout(); draw(); playTitles();
 }
 load();
 </script>
