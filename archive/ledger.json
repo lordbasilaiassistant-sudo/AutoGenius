@@ -22,5 +22,11 @@
     "claim": "The Lyapunov exponent λ for the logistic map f(x) = 4x(1-x) at r=4 is exactly ln(2), derived from the limit definition λ = lim_{N→∞} (1/N) Σ_{n=0}^{N-1} ln|f'(x_n)|, where x_n is the trajectory starting from x_0 in (0,1).",
     "artifact": "art_80430756f1_lyapunov-exponent-for-logistic-map-at-r-4.md",
     "added": "2026-07-24T02:10:14Z"
+  },
+  {
+    "id": "art_89512ee33b",
+    "claim": "The error in the numerically computed bifurcation point r_n of the logistic map scales as |r_n - r_c| ∝ δr / |λ_c| where δr is the step size in parameter space and λ_c is the critical eigenvalue at the bifurcation point",
+    "artifact": "art_89512ee33b_error-propagation-in-bifurcation-point-computation.md",
+    "added": "2026-07-25T13:19:21Z"
   }
 ]

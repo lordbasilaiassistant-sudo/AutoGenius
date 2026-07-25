@@ -467,8 +467,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_ff638939e5",
     "added": "2026-07-24T08:23:50Z"
   },
@@ -558,9 +558,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_99f6b8c022",
-    "added": "2026-07-24T19:28:06Z"
+    "added": "2026-07-24T19:28:06Z",
+    "note": "Already established — The new claim is a specific case of error propagation in the logistic map, which is already established in result 10.."
   },
   {
     "id": "q_ca75412729",
@@ -602,8 +603,42 @@
     "tractability": 2,
     "novelty": 5,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_5c24c22dbe",
-    "added": "2026-07-24T19:32:41Z"
+    "added": "2026-07-24T19:32:41Z",
+    "note": "Already established — The new claim is essentially the same as established result 10, which covers error propagation in logistic map calculations.."
+  },
+  {
+    "id": "q_b14030e67b",
+    "question": "Does the error scaling model extend to period-doubling bifurcations beyond the first bifurcation (r_n > 3) in the logistic map?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ee33d06f71",
+    "added": "2026-07-25T13:19:21Z"
+  },
+  {
+    "id": "q_9018cc3090",
+    "question": "How does the error propagation model change when using different numerical methods (e.g., Newton-Raphson vs. bisection) for bifurcation point detection?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ee33d06f71",
+    "added": "2026-07-25T13:19:21Z"
+  },
+  {
+    "id": "q_db48717e8d",
+    "question": "Can the error scaling model be generalized to other one-dimensional maps with period-doubling bifurcations?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_ee33d06f71",
+    "added": "2026-07-25T13:19:21Z"
   }
 ]
