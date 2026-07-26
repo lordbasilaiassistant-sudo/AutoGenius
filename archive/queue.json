@@ -591,8 +591,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_5c24c22dbe",
     "added": "2026-07-24T19:32:41Z"
   },
@@ -648,9 +648,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_db48717e8d",
-    "added": "2026-07-26T02:20:45Z"
+    "added": "2026-07-26T02:20:45Z",
+    "note": "Already established — The new claim is identical to established result 6, except for the critical point being quartic instead of quadratic.."
   },
   {
     "id": "q_7b20db543a",
@@ -670,8 +671,31 @@
     "tractability": 2,
     "novelty": 5,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_db48717e8d",
-    "added": "2026-07-26T02:20:45Z"
+    "added": "2026-07-26T02:20:45Z",
+    "note": "Already established — The new claim is identical to established result 6, which states the same convergence to the Feigenbaum constant for unimodal one-dimensional maps with quadratic maxima.."
+  },
+  {
+    "id": "q_9604c5a89e",
+    "question": "What is the exact scaling relationship between the error in the bifurcation point δr_c and the perturbation δr for the logistic map near r_c = 3?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_d8586fd95f",
+    "added": "2026-07-26T08:22:08Z"
+  },
+  {
+    "id": "q_030cef8112",
+    "question": "How does the error propagation at the bifurcation point r_c = 3 compare between the logistic map and other one-dimensional maps with quadratic maxima?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_d8586fd95f",
+    "added": "2026-07-26T08:22:08Z"
   }
 ]

@@ -205,5 +205,14 @@
     "question": "Can the error scaling model be generalized to other one-dimensional maps with period-doubling bifurcations?",
     "path": "established/art_eb70f45bda_feigenbaum-universality-in-one-dimensional-maps.md",
     "timestamp": "2026-07-26T02:20:45Z"
+  },
+  {
+    "id": "art_91175366c2",
+    "verdict": "DISPROVEN",
+    "title": "Error Propagation at Logistic Map Bifurcation",
+    "confidence": 0.9,
+    "question": "Does the error propagation formula change at the bifurcation point r_c = 3 where f'(r_c) = 1?",
+    "path": "disproven/art_91175366c2_error-propagation-at-logistic-map-bifurcation.md",
+    "timestamp": "2026-07-26T08:22:08Z"
   }
 ]
