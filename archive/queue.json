@@ -636,9 +636,42 @@
     "significance": 5,
     "tractability": 3,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_ee33d06f71",
     "added": "2026-07-25T13:19:21Z"
+  },
+  {
+    "id": "q_8e43232ac9",
+    "question": "Does the Feigenbaum universality extend to maps with higher-order maxima (e.g., quartic or sextic critical points)?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_db48717e8d",
+    "added": "2026-07-26T02:20:45Z"
+  },
+  {
+    "id": "q_7b20db543a",
+    "question": "What is the exact value of the Feigenbaum constant for the cubic map f(x,r) = r*x*(1-x^2) compared to the quadratic case?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_db48717e8d",
+    "added": "2026-07-26T02:20:45Z"
+  },
+  {
+    "id": "q_274219d5fc",
+    "question": "Can the renormalization group approach be extended to two-dimensional maps with period-doubling bifurcations?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_db48717e8d",
+    "added": "2026-07-26T02:20:45Z"
   }
 ]

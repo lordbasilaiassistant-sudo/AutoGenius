@@ -196,5 +196,14 @@
     "question": "What is the correct error propagation model for numerical computation of bifurcation points in the logistic map?",
     "path": "established/art_89512ee33b_error-propagation-in-bifurcation-point-computation.md",
     "timestamp": "2026-07-25T13:19:21Z"
+  },
+  {
+    "id": "art_eb70f45bda",
+    "verdict": "PROVEN",
+    "title": "Feigenbaum Universality in One-Dimensional Maps",
+    "confidence": 0.85,
+    "question": "Can the error scaling model be generalized to other one-dimensional maps with period-doubling bifurcations?",
+    "path": "established/art_eb70f45bda_feigenbaum-universality-in-one-dimensional-maps.md",
+    "timestamp": "2026-07-26T02:20:45Z"
   }
 ]

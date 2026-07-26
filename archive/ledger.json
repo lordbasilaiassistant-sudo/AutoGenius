@@ -28,5 +28,11 @@
     "claim": "The error in the numerically computed bifurcation point r_n of the logistic map scales as |r_n - r_c| ∝ δr / |λ_c| where δr is the step size in parameter space and λ_c is the critical eigenvalue at the bifurcation point",
     "artifact": "art_89512ee33b_error-propagation-in-bifurcation-point-computation.md",
     "added": "2026-07-25T13:19:21Z"
+  },
+  {
+    "id": "art_eb70f45bda",
+    "claim": "For any unimodal one-dimensional map f(x,r) with a quadratic maximum at the critical point, the ratio of successive differences in bifurcation points δ_n = r_{n+1} - r_n converges to the Feigenbaum constant δ = 4.669201... as n → ∞, i.e., lim_{n→∞} δ_n / δ_{n-1} = δ, independent of the specific map details.",
+    "artifact": "art_eb70f45bda_feigenbaum-universality-in-one-dimensional-maps.md",
+    "added": "2026-07-26T02:20:45Z"
   }
 ]
