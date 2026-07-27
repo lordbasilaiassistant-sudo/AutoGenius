@@ -615,9 +615,10 @@
     "tractability": 3,
     "novelty": 3,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_ee33d06f71",
-    "added": "2026-07-25T13:19:21Z"
+    "added": "2026-07-25T13:19:21Z",
+    "note": "Already established — The new claim is identical to established result 5, which states the same error scaling relationship for bifurcation points in the logistic map.."
   },
   {
     "id": "q_9018cc3090",
@@ -659,8 +660,8 @@
     "significance": 3,
     "tractability": 4,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_db48717e8d",
     "added": "2026-07-26T02:20:45Z"
   },
@@ -697,5 +698,38 @@
     "status": "open",
     "parent": "q_d8586fd95f",
     "added": "2026-07-26T08:22:08Z"
+  },
+  {
+    "id": "q_99ebbcf1c0",
+    "question": "What is the actual value of the bifurcation ratio limit for the cubic map f(x,r) = r*x*(1-x^2), and does it converge to a universal constant?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7b20db543a",
+    "added": "2026-07-27T14:28:20Z"
+  },
+  {
+    "id": "q_06a83d0e3d",
+    "question": "Does the cubic map f(x,r) = r*x*(1-x^2) exhibit a different universality class than quadratic maps, and if so, what characterizes its critical behavior?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7b20db543a",
+    "added": "2026-07-27T14:28:20Z"
+  },
+  {
+    "id": "q_9430ff9227",
+    "question": "What is the exact value of the critical parameter r_c for the cubic map where chaos begins, and how does it compare to the quadratic case?",
+    "significance": 3,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7b20db543a",
+    "added": "2026-07-27T14:28:20Z"
   }
 ]

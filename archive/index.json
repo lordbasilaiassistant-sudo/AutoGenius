@@ -214,5 +214,14 @@
     "question": "Does the error propagation formula change at the bifurcation point r_c = 3 where f'(r_c) = 1?",
     "path": "disproven/art_91175366c2_error-propagation-at-logistic-map-bifurcation.md",
     "timestamp": "2026-07-26T08:22:08Z"
+  },
+  {
+    "id": "art_05ba0c64a0",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum constant for cubic map",
+    "confidence": 0.9,
+    "question": "What is the exact value of the Feigenbaum constant for the cubic map f(x,r) = r*x*(1-x^2) compared to the quadratic case?",
+    "path": "disproven/art_05ba0c64a0_feigenbaum-constant-for-cubic-map.md",
+    "timestamp": "2026-07-27T14:28:19Z"
   }
 ]
