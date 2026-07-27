@@ -716,8 +716,8 @@
     "significance": 5,
     "tractability": 2,
     "novelty": 5,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_7b20db543a",
     "added": "2026-07-27T14:28:20Z"
   },
@@ -731,5 +731,38 @@
     "status": "open",
     "parent": "q_7b20db543a",
     "added": "2026-07-27T14:28:20Z"
+  },
+  {
+    "id": "q_ce553b25c5",
+    "question": "What is the exact value of r_c for the cubic map f(x,r) = r*x*(1-x^2) where the period-doubling bifurcation occurs?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_06a83d0e3d",
+    "added": "2026-07-27T19:22:53Z"
+  },
+  {
+    "id": "q_609507c755",
+    "question": "Does the cubic map f(x,r) = r*x*(1-x^2) exhibit the same Feigenbaum constant δ ≈ 4.669 as quadratic maps in its period-doubling cascade?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_06a83d0e3d",
+    "added": "2026-07-27T19:22:53Z"
+  },
+  {
+    "id": "q_2a5c6dd5b5",
+    "question": "What is the critical exponent ν for the cubic map, and how does it compare to the quadratic case?",
+    "significance": 4,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_06a83d0e3d",
+    "added": "2026-07-27T19:22:53Z"
   }
 ]

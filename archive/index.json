@@ -223,5 +223,14 @@
     "question": "What is the exact value of the Feigenbaum constant for the cubic map f(x,r) = r*x*(1-x^2) compared to the quadratic case?",
     "path": "disproven/art_05ba0c64a0_feigenbaum-constant-for-cubic-map.md",
     "timestamp": "2026-07-27T14:28:19Z"
+  },
+  {
+    "id": "art_7433c6f7bc",
+    "verdict": "DISPROVEN",
+    "title": "Cubic Map Universality Class",
+    "confidence": 0.9,
+    "question": "Does the cubic map f(x,r) = r*x*(1-x^2) exhibit a different universality class than quadratic maps, and if so, what characterizes its critical behavior?",
+    "path": "disproven/art_7433c6f7bc_cubic-map-universality-class.md",
+    "timestamp": "2026-07-27T19:22:53Z"
   }
 ]
