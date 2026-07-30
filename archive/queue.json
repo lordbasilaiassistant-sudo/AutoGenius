@@ -683,8 +683,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_d8586fd95f",
     "added": "2026-07-26T08:22:08Z"
   },
@@ -706,9 +706,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_7b20db543a",
-    "added": "2026-07-27T14:28:20Z"
+    "added": "2026-07-27T14:28:20Z",
+    "note": "Already established — The claim is a specific instance of the general universality principle for unimodal maps with quadratic maxima.."
   },
   {
     "id": "q_06a83d0e3d",
@@ -750,9 +751,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_06a83d0e3d",
-    "added": "2026-07-27T19:22:53Z"
+    "added": "2026-07-27T19:22:53Z",
+    "note": "Already established — The claim is a direct application of the established result for unimodal maps with quadratic maxima to the cubic map.."
   },
   {
     "id": "q_2a5c6dd5b5",
@@ -764,5 +766,16 @@
     "status": "open",
     "parent": "q_06a83d0e3d",
     "added": "2026-07-27T19:22:53Z"
+  },
+  {
+    "id": "q_2a063fa1f0",
+    "question": "Does the error scaling δr_c ∝ (δr)^α hold for other unimodal one-dimensional maps with quadratic maxima, and if so, what is the value of α?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_9604c5a89e",
+    "added": "2026-07-30T19:24:07Z"
   }
 ]

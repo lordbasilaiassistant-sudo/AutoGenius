@@ -232,5 +232,14 @@
     "question": "Does the cubic map f(x,r) = r*x*(1-x^2) exhibit a different universality class than quadratic maps, and if so, what characterizes its critical behavior?",
     "path": "disproven/art_7433c6f7bc_cubic-map-universality-class.md",
     "timestamp": "2026-07-27T19:22:53Z"
+  },
+  {
+    "id": "art_6d99c61d68",
+    "verdict": "DISPROVEN",
+    "title": "Feigenbaum Constant Scaling in Logistic Map",
+    "confidence": 0.9,
+    "question": "What is the exact scaling relationship between the error in the bifurcation point δr_c and the perturbation δr for the logistic map near r_c = 3?",
+    "path": "disproven/art_6d99c61d68_feigenbaum-constant-scaling-in-logistic-map.md",
+    "timestamp": "2026-07-30T19:24:07Z"
   }
 ]
