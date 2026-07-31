@@ -695,9 +695,10 @@
     "tractability": 4,
     "novelty": 3,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_d8586fd95f",
-    "added": "2026-07-26T08:22:08Z"
+    "added": "2026-07-26T08:22:08Z",
+    "note": "Already established — The new claim is identical to established result 5, which states the same scaling law for bifurcation point error in the logistic map.."
   },
   {
     "id": "q_99ebbcf1c0",
@@ -739,8 +740,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_06a83d0e3d",
     "added": "2026-07-27T19:22:53Z"
   },

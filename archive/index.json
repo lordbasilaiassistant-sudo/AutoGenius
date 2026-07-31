@@ -241,5 +241,14 @@
     "question": "What is the exact scaling relationship between the error in the bifurcation point δr_c and the perturbation δr for the logistic map near r_c = 3?",
     "path": "disproven/art_6d99c61d68_feigenbaum-constant-scaling-in-logistic-map.md",
     "timestamp": "2026-07-30T19:24:07Z"
+  },
+  {
+    "id": "art_9dd7d2e2c1",
+    "verdict": "DISPROVEN",
+    "title": "Period-Doubling Bifurcation in Cubic Map",
+    "confidence": 0.9,
+    "question": "What is the exact value of r_c for the cubic map f(x,r) = r*x*(1-x^2) where the period-doubling bifurcation occurs?",
+    "path": "disproven/art_9dd7d2e2c1_period-doubling-bifurcation-in-cubic-map.md",
+    "timestamp": "2026-07-31T02:15:16Z"
   }
 ]
