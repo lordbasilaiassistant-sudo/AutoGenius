@@ -764,8 +764,8 @@
     "significance": 4,
     "tractability": 2,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_06a83d0e3d",
     "added": "2026-07-27T19:22:53Z"
   },
@@ -787,9 +787,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_efb0a85014",
-    "added": "2026-07-31T08:47:22Z"
+    "added": "2026-07-31T08:47:22Z",
+    "note": "Already established — Both deal with conservation laws in time-dependent Lagrangian systems."
   },
   {
     "id": "q_fd5825be12",
@@ -798,9 +799,10 @@
     "tractability": 3,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_efb0a85014",
-    "added": "2026-07-31T08:47:22Z"
+    "added": "2026-07-31T08:47:22Z",
+    "note": "Already established — The new claim is essentially the same as established result 19, which also addresses conservation laws with time-dependent potentials.."
   },
   {
     "id": "q_637c56ad43",
@@ -812,5 +814,27 @@
     "status": "open",
     "parent": "q_efb0a85014",
     "added": "2026-07-31T08:47:22Z"
+  },
+  {
+    "id": "q_f75ad25e56",
+    "question": "Does the cubic map exhibit the same universal scaling behavior as the quadratic map near criticality, or are there fundamental differences in their bifurcation structures?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 5,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_2a5c6dd5b5",
+    "added": "2026-07-31T14:01:37Z"
+  },
+  {
+    "id": "q_7cff584569",
+    "question": "What is the precise value of r_c for the cubic map, and how does the Lyapunov exponent scale in different regions around this critical point?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_2a5c6dd5b5",
+    "added": "2026-07-31T14:01:37Z"
   }
 ]

@@ -259,5 +259,14 @@
     "question": "Can we develop a more general conservation law that accounts for cases where the potential has implicit time dependence through q(t)?",
     "path": "disproven/art_ed7fe6a03e_conservation-law-with-time-dependent-potential.md",
     "timestamp": "2026-07-31T08:47:22Z"
+  },
+  {
+    "id": "art_c8e086b260",
+    "verdict": "DISPROVEN",
+    "title": "Critical Exponent for Cubic Map",
+    "confidence": 0.85,
+    "question": "What is the critical exponent ν for the cubic map, and how does it compare to the quadratic case?",
+    "path": "disproven/art_c8e086b260_critical-exponent-for-cubic-map.md",
+    "timestamp": "2026-07-31T14:01:37Z"
   }
 ]
