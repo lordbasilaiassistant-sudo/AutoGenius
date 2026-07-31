@@ -250,5 +250,14 @@
     "question": "What is the exact value of r_c for the cubic map f(x,r) = r*x*(1-x^2) where the period-doubling bifurcation occurs?",
     "path": "disproven/art_9dd7d2e2c1_period-doubling-bifurcation-in-cubic-map.md",
     "timestamp": "2026-07-31T02:15:16Z"
+  },
+  {
+    "id": "art_ed7fe6a03e",
+    "verdict": "DISPROVEN",
+    "title": "Conservation Law with Time-Dependent Potential",
+    "confidence": 0.95,
+    "question": "Can we develop a more general conservation law that accounts for cases where the potential has implicit time dependence through q(t)?",
+    "path": "disproven/art_ed7fe6a03e_conservation-law-with-time-dependent-potential.md",
+    "timestamp": "2026-07-31T08:47:22Z"
   }
 ]

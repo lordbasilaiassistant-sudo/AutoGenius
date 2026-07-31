@@ -6,9 +6,10 @@
     "tractability": 5,
     "novelty": 4,
     "attempts": 2,
-    "status": "open",
+    "status": "closed",
     "parent": null,
-    "added": "2026-07-23T05:34:06Z"
+    "added": "2026-07-23T05:34:06Z",
+    "note": "Already established — The claim is identical to established result 6, which states the same convergence to the Feigenbaum constant for unimodal one-dimensional maps with quadratic maxima.."
   },
   {
     "id": "q_fc4f57ba97",
@@ -225,8 +226,8 @@
     "significance": 4,
     "tractability": 2,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_19efb7bbf5",
     "added": "2026-07-23T06:39:04Z"
   },
@@ -778,5 +779,38 @@
     "status": "open",
     "parent": "q_9604c5a89e",
     "added": "2026-07-30T19:24:07Z"
+  },
+  {
+    "id": "q_6f96498f80",
+    "question": "What is the correct conserved quantity for a Lagrangian with explicit time dependence through q(t) = q_0 + qdot_0*t + (1/2)*qdd_0*t²?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_efb0a85014",
+    "added": "2026-07-31T08:47:22Z"
+  },
+  {
+    "id": "q_fd5825be12",
+    "question": "Can we derive a generalized Noether's theorem for systems with time-dependent potentials?",
+    "significance": 5,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_efb0a85014",
+    "added": "2026-07-31T08:47:22Z"
+  },
+  {
+    "id": "q_637c56ad43",
+    "question": "What is the time evolution of the claimed 'conserved' quantity E in the scientist's example?",
+    "significance": 3,
+    "tractability": 2,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_efb0a85014",
+    "added": "2026-07-31T08:47:22Z"
   }
 ]
