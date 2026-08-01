@@ -822,9 +822,10 @@
     "tractability": 2,
     "novelty": 5,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_2a5c6dd5b5",
-    "added": "2026-07-31T14:01:37Z"
+    "added": "2026-07-31T14:01:37Z",
+    "note": "Already established — The claim is identical to established result 6, which states the same convergence to the Feigenbaum constant for any unimodal one-dimensional map with a quadratic maximum.."
   },
   {
     "id": "q_7cff584569",
@@ -832,9 +833,42 @@
     "significance": 3,
     "tractability": 4,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_2a5c6dd5b5",
     "added": "2026-07-31T14:01:37Z"
+  },
+  {
+    "id": "q_08e8eb9082",
+    "question": "What is the exact value of r_c for the cubic map f(x) = r*x*(1-x^2) where the Lyapunov exponent crosses zero?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7cff584569",
+    "added": "2026-08-01T02:22:30Z"
+  },
+  {
+    "id": "q_e2e37d74e8",
+    "question": "Does the scaling exponent ν in λ ∝ (r - r_c)^ν for the cubic map match the universal value of 0.5 for period-doubling bifurcations?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7cff584569",
+    "added": "2026-08-01T02:22:30Z"
+  },
+  {
+    "id": "q_5b5cbf194a",
+    "question": "How does the cubic map's bifurcation structure compare to the logistic map's, particularly in the scaling of successive bifurcation points?",
+    "significance": 3,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_7cff584569",
+    "added": "2026-08-01T02:22:30Z"
   }
 ]

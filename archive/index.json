@@ -268,5 +268,14 @@
     "question": "What is the critical exponent ν for the cubic map, and how does it compare to the quadratic case?",
     "path": "disproven/art_c8e086b260_critical-exponent-for-cubic-map.md",
     "timestamp": "2026-07-31T14:01:37Z"
+  },
+  {
+    "id": "art_37ed035095",
+    "verdict": "DISPROVEN",
+    "title": "Cubic Map Critical Parameter",
+    "confidence": 0.9,
+    "question": "What is the precise value of r_c for the cubic map, and how does the Lyapunov exponent scale in different regions around this critical point?",
+    "path": "disproven/art_37ed035095_cubic-map-critical-parameter.md",
+    "timestamp": "2026-08-01T02:22:30Z"
   }
 ]
