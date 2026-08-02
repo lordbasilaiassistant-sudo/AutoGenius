@@ -277,5 +277,14 @@
     "question": "What is the precise value of r_c for the cubic map, and how does the Lyapunov exponent scale in different regions around this critical point?",
     "path": "disproven/art_37ed035095_cubic-map-critical-parameter.md",
     "timestamp": "2026-08-01T02:22:30Z"
+  },
+  {
+    "id": "art_d978d797db",
+    "verdict": "DISPROVEN",
+    "title": "Cubic Map Scaling Exponent Verification",
+    "confidence": 0.85,
+    "question": "Does the scaling exponent ν in λ ∝ (r - r_c)^ν for the cubic map match the universal value of 0.5 for period-doubling bifurcations?",
+    "path": "disproven/art_d978d797db_cubic-map-scaling-exponent-verification.md",
+    "timestamp": "2026-08-02T13:18:55Z"
   }
 ]

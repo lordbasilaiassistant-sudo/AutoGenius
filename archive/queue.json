@@ -855,8 +855,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 4,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_7cff584569",
     "added": "2026-08-01T02:22:30Z"
   },
@@ -870,5 +870,27 @@
     "status": "open",
     "parent": "q_7cff584569",
     "added": "2026-08-01T02:22:30Z"
+  },
+  {
+    "id": "q_d8d62a68e5",
+    "question": "What is the exact value of the scaling exponent ν for the cubic map when using the precisely calculated bifurcation point?",
+    "significance": 4,
+    "tractability": 3,
+    "novelty": 3,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_e2e37d74e8",
+    "added": "2026-08-02T13:18:55Z"
+  },
+  {
+    "id": "q_592153e853",
+    "question": "Does the cubic map exhibit the same universal scaling behavior as the logistic map near its period-doubling bifurcation?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_e2e37d74e8",
+    "added": "2026-08-02T13:18:55Z"
   }
 ]
