@@ -844,8 +844,8 @@
     "significance": 4,
     "tractability": 3,
     "novelty": 3,
-    "attempts": 0,
-    "status": "open",
+    "attempts": 1,
+    "status": "closed",
     "parent": "q_7cff584569",
     "added": "2026-08-01T02:22:30Z"
   },
@@ -889,8 +889,31 @@
     "tractability": 2,
     "novelty": 4,
     "attempts": 0,
-    "status": "open",
+    "status": "closed",
     "parent": "q_e2e37d74e8",
-    "added": "2026-08-02T13:18:55Z"
+    "added": "2026-08-02T13:18:55Z",
+    "note": "Already established — The claim is a direct application of the established result for unimodal one-dimensional maps with quadratic maximum to the cubic map, which belongs to the same universality class.."
+  },
+  {
+    "id": "q_e7616e2391",
+    "question": "Can we derive a correct analytical expression for r_c in the cubic map that matches the numerical results?",
+    "significance": 5,
+    "tractability": 2,
+    "novelty": 4,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_08e8eb9082",
+    "added": "2026-08-09T12:47:38Z"
+  },
+  {
+    "id": "q_1dfd4c0557",
+    "question": "Does the cubic map follow the Feigenbaum constant δ = 4.669201... in its period-doubling bifurcations?",
+    "significance": 3,
+    "tractability": 4,
+    "novelty": 2,
+    "attempts": 0,
+    "status": "open",
+    "parent": "q_08e8eb9082",
+    "added": "2026-08-09T12:47:38Z"
   }
 ]
