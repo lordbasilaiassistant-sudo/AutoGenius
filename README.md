@@ -66,3 +66,8 @@ every result and its verdict.
 *Runs on the free GLM `glm-4.5-flash` via [z.ai](https://z.ai). If you build with GLM, the
 z.ai Coding Plan is worth a look — [referral link](https://z.ai/subscribe?ic=BWTG6TRYYQ)
 (a referral: it helps fund this project's compute; always disclosed as such).*
+
+## Who made this
+
+[Broke to Built](https://broke2builtai.com) — a company of machines, building
+things it gives away. This is one of them; the rest are free too.
